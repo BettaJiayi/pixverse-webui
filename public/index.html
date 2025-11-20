@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>PixVerse API 控制台（本地开发版）</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+  <!-- 用 radio 做「文转视频 / 图转视频 / 续写视频 / 首尾帧」切换 -->
+  <input type="radio" id="tab-text" name="main-tab" checked hidden />
+  <input type="radio" id="tab-image" name="main-tab" hidden />
+  <input type="radio" id="tab-extend" name="main-tab" hidden />
+  <input type="radio" id="tab-transition" name="main-tab" hidden />
+
+  <div class="app-shell">
+    <!-- 侧边栏 -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <div class="logo-mark">PV</div>
+        <div class="logo-text">
+          <div class="logo-title">PixVerse</div>
+          <div class="logo-sub">本地开发控制台</div>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <label class="nav-item" for="tab-text">
+          <span class="nav-icon">🎬</span>
+          <span class="nav-label">文本转视频</span>
+        </label>
+        <label class="nav-item" for="tab-image">
+          <span class="nav-icon">🖼️</span>
+          <span class="nav-label">图片转视频</span>
+        </label>
+        <label class="nav-item" for="tab-extend">
+          <span class="nav-icon">⏩</span>
+          <span class="nav-label">续写视频</span>
+        </label>
+        <label class="nav-item" for="tab-transition">
+          <span class="nav-icon">🔀</span>
+          <span class="nav-label">首尾帧转视频</span>
+        </label>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="balance-line">
+          余额：<span id="balanceText">--</span>
+        </div>
+        <button id="refreshBalanceBtn" class="btn btn-sm">刷新余额</button>
+        <div class="sidebar-tip">仅作个人开发调试使用</div>
+      </div>
+    </aside>
+
+    <!-- 主体 -->
+    <div class="app-main">
+      <!-- 顶部栏 -->
+      <header class="topbar">
+        <div class="topbar-title">
+          <span id="modeTitle">文本转视频（Text-to-Video）</span>
+        </div>
+        <div class="topbar-right">
+          <span class="badge">PixVerse OpenAPI</span>
+        </div>
+      </header>
+
+      <div class="workspace">
+        <!-- 左列：四个面板 -->
+        <div class="workspace-left">
+
+          <!-- 文本转视频 -->
+          <section id="textCard" class="panel panel-text card">
+            <h2>文本转视频（Text-to-Video）</h2>
+
+            <!-- 双列网格容器 -->
+            <div class="panel-grid">
+              <!-- 分组：提示词 -->
+              <h3 class="group-title">提示词</h3>
+              <label class="form-label">
+                提示词（prompt）：
+                <textarea id="txtPrompt" placeholder="例如：日出时分的山间湖泊，镜头缓慢推进，阳光洒在湖面……"></textarea>
+              </label>
+
+              <label class="form-label">
+                否定提示词（negative_prompt，可选）：
+                <textarea id="txtNegativePrompt" placeholder="例如：low quality, blurry, distortion"></textarea>
+              </label>
+
+              <!-- 分组：画面与时长 -->
+              <h3 class="group-title">画面与时长</h3>
+              <div class="form-row">
+                <label class="form-label">
+                  画面比例（aspect_ratio）：
+                  <select id="txtAspectRatio">
+                    <option value="16:9">16:9（横版）</option>
+                    <option value="9:16">9:16（竖版）</option>
+                    <option value="1:1">1:1</option>
+                    <option value="3:4">3:4</option>
+                    <option value="4:3">4:3</option>
+                  </select>
+                </label>
+
+                <label class="form-label">
+                  时长（duration）：
+                  <select id="txtDuration">
+                    <option value="5" selected>5 秒</option>
+                    <option value="8">8 秒</option>
+                  </select>
+                </label>
+              </div>
+
+              <!-- 分组：模型与清晰度 -->
+              <h3 class="group-title">模型与清晰度</h3>
+              <div class="form-row">
+                <label class="form-label">
+                  模型（model）：
+                  <!-- ★ 已加入 v5，并设为默认选中 -->
+                  <select id="txtModel">
+                    <option value="v3.5">v3.5</option>
+                    <option value="v4">v4</option>
+                    <option value="v4.5">v4.5</option>
+                    <option value="v5" selected>v5</option>
+                  </select>
+                </label>
+
+                <label class="form-label">
+                  清晰度（quality）：
+                  <select id="txtQuality">
+                    <option value="360p">360p（Turbo）</option>
+                    <option value="540p" selected>540p</option>
+                    <option value="720p">720p</option>
+                    <option value="1080p">1080p</option>
+                  </select>
+                </label>
+              </div>
+
+              <!-- 分组：风格 / 动作 / BGM -->
+              <h3 class="group-title">风格 / 动作 / BGM</h3>
+              <label class="form-label">
+                画面风格（style 可选）：
+                <select id="txtStyle">
+                  <option value="">不指定（默认风格）</option>
+                  <option value="anime">anime</option>
+                  <option value="3d_animation">3d_animation</option>
+                  <option value="day">day</option>
+                  <option value="cyberpunk">cyberpunk</option>
+                  <option value="comic">comic</option>
+                </select>
+              </label>
+
+              <div class="form-row">
+                <label class="form-label">
+                  动作模式（motion_mode）：
+                  <!-- ✅ 这里改成 txtMotionMode -->
+                  <select id="txtMotionMode">
+                    <option value="normal">normal</option>
+                    <option value="fast">fast（仅支持5秒）</option>
+                  </select>
+                </label>
+
+                <label class="form-label">
+                  背景音乐（sound_effect，可选）：
+                  <!-- ✅ 这里改成 txtSoundSwitch -->
+                  <select id="txtSoundSwitch">
+                    <option value="off">无音频</option>
+                    <option value="auto">自动生成 BGM</option>
+                    <option value="prompt">按提示词生成 BGM</option>
+                  </select>
+                </label>
+              </div>
+
+              <label class="form-label" id="txtSoundPromptWrapper">
+                音频描述（prompt 模式可选）：
+                <textarea id="txtSoundPrompt" placeholder="例如：轻快的钢琴+Bossa Nova 节奏"></textarea>
+              </label>
+
+              <!-- 分组：高级设置 -->
+              <h3 class="group-title">高级设置（可选）</h3>
+              <label class="form-label">
+                种子（seed 可选）：
+                <input id="txtSeed" type="number" placeholder="范围：0-2147483647" />
+              </label>
+
+              <label class="form-label">
+                特效模板 ID（template_id，可选）：
+                <input
+                  id="txtTemplateId"
+                  type="number"
+                  placeholder="例如 3086387029697416576"
+                />
+              </label>
+
+              <!-- 提交区域 -->
+              <div class="form-actions">
+                <button id="generateTextBtn" class="btn btn-primary">
+                  提交文本转视频任务
+                </button>
+
+                <div class="form-tip">
+                  · fast 模式仅支持 5 秒。<br />
+                  · 种子范围：0 ~ 2147483647。
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 图片转视频 -->
+          <section id="imageCard" class="panel panel-image card">
+            <h2>图片转视频（Image-to-Video）</h2>
+
+            <!-- 双列网格容器 -->
+            <div class="panel-grid">
+              <!-- 分组：图片上传 -->
+              <h3 class="group-title">上传图片</h3>
+              <div class="form-row">
+                <label class="form-label file-input-row">
+                  选择图片文件：
+                  <input id="imgFile" type="file" accept="image/*" class="transition-file-input" />
+                  <span id="imgFileStatus" class="file-status-label inline-status">未选择文件</span>
+                </label>
+              </div>
+
+              <div class="form-small">
+                当前 img_id：<span id="imgIdText">尚未上传图片</span>
+                <!-- ✅ 这里改成 uploadImageBtn，给 JS 用 -->
+                <button id="uploadImageBtn" class="btn btn-xs" style="display:none;">重新上传</button>
+              </div>
+
+              <!-- 分组：提示词 -->
+              <h3 class="group-title">提示词</h3>
+              <label class="form-label">
+                提示词（prompt 可选）：
+                <textarea id="imgPrompt" placeholder="不填则仅根据图片生成动画。"></textarea>
+              </label>
+
+              <label class="form-label">
+                否定提示词（negative_prompt 可选）：
+                <textarea id="imgNegativePrompt" placeholder="low quality, blurry"></textarea>
+              </label>
+
+              <!-- 分组：基础参数（含背景音乐） -->
+              <h3 class="group-title">基础参数</h3>
+              <div class="form-row">
+                <label class="form-label">
+                  时长（duration）：
+                  <select id="imgDuration">
+                    <option value="5">5 秒</option>
+                    <option value="8">8 秒</option>
+                  </select>
+                </label>
+
+                <label class="form-label">
+                  模型（model）：
+                  <!-- ★ 已加入 v5，并设为默认选中 -->
+                  <select id="imgModel">
+                    <option value="v3.5">v3.5</option>
+                    <option value="v4">v4</option>
+                    <option value="v4.5">v4.5</option>
+                    <option value="v5" selected>v5</option>
+                  </select>
+                </label>
+              </div>
+
+              <div class="form-row">
+                <label class="form-label">
+                  清晰度（quality）：
+                  <select id="imgQuality">
+                    <option value="360p">360p</option>
+                    <option value="540p" selected>540p</option>
+                    <option value="720p">720p</option>
+                    <option value="1080p">1080p</option>
+                  </select>
+                </label>
+
+                <label class="form-label">
+                  画面风格（style 可选）：
+                  <select id="imgStyle">
+                    <option value="">默认风格</option>
+                    <option value="anime">anime</option>
+                    <option value="3d_animation">3d_animation</option>
+                    <option value="day">day</option>
+                    <option value="cyberpunk">cyberpunk</option>
+                    <option value="comic">comic</option>
+                  </select>
+                </label>
+              </div>
+
+              <label class="form-label">
+                动作模式（motion_mode）：
+                <!-- 这里是图片自己的 imgMotionMode，保留 -->
+                <select id="imgMotionMode">
+                  <option value="normal">normal</option>
+                  <option value="fast">fast（仅支持5秒）</option>
+                </select>
+              </label>
+
+              <!-- 背景音乐现在也归到「基础参数」这一组 -->
+              <label class="form-label">
+                背景音乐（sound_effect，可选）：
+                <select id="imgSoundSwitch">
+                  <option value="off">无音频</option>
+                  <option value="auto">自动生成 BGM</option>
+                  <option value="prompt">按提示词生成 BGM</option>
+                </select>
+              </label>
+
+              <label class="form-label" id="imgSoundPromptWrapper">
+                音频描述（prompt 模式可选）：
+                <textarea id="imgSoundPrompt" placeholder="例如：轻快钢琴 + 鼓点"></textarea>
+              </label>
+
+              <!-- 分组：高级设置 -->
+              <h3 class="group-title">高级设置（可选）</h3>
+              <label class="form-label">
+                种子（seed 可选）：
+                <input id="imgSeed" type="number" placeholder="范围：0-2147483647" />
+              </label>
+
+              <label class="form-label">
+                特效模板 ID（template_id，可选）：
+                <input
+                  id="imgTemplateId"
+                  type="number"
+                  placeholder="例如 3086387029697416576"
+                />
+              </label>
+
+              <!-- 提交区域 -->
+              <div class="form-actions">
+                <button id="generateImageBtn" class="btn btn-primary">提交图片转视频任务</button>
+
+                <div class="form-tip">
+                  · 提交前必须上传图片。<br />
+                  · fast 模式仅支持 5 秒。
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 续写视频 Extend -->
+          <section id="extendCard" class="panel panel-extend card">
+            <h2>续写视频（Extend）</h2>
+
+            <!-- 双列网格容器 -->
+            <div class="panel-grid">
+              <!-- 分组：选择源视频 -->
+              <h3 class="group-title">选择源视频</h3>
+              <div class="form-block">
+                <div class="form-small">
+                  你可以选择：
+                  <br />· 直接使用已有 PixVerse video_id 续写
+                  <br />· 或上传本地视频获得 media_id 再续写
+                </div>
+              </div>
+
+              <label class="form-label">
+                方式一：使用已有 PixVerse video_id（可选）
+                <input id="extSourceVideoId" placeholder="例如：123456789（已有生成任务的 video_id）" />
+              </label>
+
+              <div class="form-row">
+                <label class="form-label file-input-row">
+                  方式二：上传本地视频文件（可选）
+                  <input id="extVideoFile" type="file" accept="video/mp4,video/*" class="transition-file-input" />
+                  <span id="extVideoFileStatus" class="file-status-label inline-status">未选择文件</span>
+                </label>
+              </div>
+
+              <div class="form-small">
+                当前 video_media_id：<span id="extMediaIdText">尚未上传视频</span>
+                <!-- ✅ 改成 extUploadVideoBtn，对应 JS -->
+                <button id="extUploadVideoBtn" class="btn btn-xs" style="display:none;">重新上传</button>
+              </div>
+
+              <!-- 分组：提示词 -->
+              <h3 class="group-title">提示词</h3>
+              <label class="form-label">
+                续写提示词（prompt，必填）：
+                <textarea id="extPrompt"></textarea>
+              </label>
+
+              <label class="form-label">
+                否定提示词（negative_prompt，可选）：
+                <textarea id="extNegativePrompt"></textarea>
+              </label>
+
+              <!-- 分组：基础参数 -->
+              <h3 class="group-title">基础参数</h3>
+              <div class="form-row">
+                <label class="form-label">
+                  时长：
+                  <select id="extDuration">
+                    <option value="5">5 秒</option>
+                    <option value="8">8 秒</option>
+                  </select>
+                </label>
+
+                <label class="form-label">
+                  模型：
+                  <!-- ★ 已加入 v5，并设为默认选中 -->
+                  <select id="extModel">
+                    <option value="v3.5">v3.5</option>
+                    <option value="v4">v4</option>
+                    <option value="v4.5">v4.5</option>
+                    <option value="v5" selected>v5</option>
+                  </select>
+                </label>
+              </div>
+
+              <div class="form-row">
+                <label class="form-label">
+                  清晰度：
+                  <select id="extQuality">
+                    <option value="360p">360p</option>
+                    <option value="540p">540p</option>
+                    <option value="720p">720p</option>
+                    <option value="1080p">1080p</option>
+                  </select>
+                </label>
+
+                <label class="form-label">
+                  动作模式：
+                  <select id="extMotionMode">
+                    <option value="normal">normal</option>
+                    <option value="fast">fast</option>
+                  </select>
+                </label>
+              </div>
+
+              <!-- 分组：高级设置 -->
+              <h3 class="group-title">高级设置（可选）</h3>
+              <label class="form-label">
+                种子：
+                <input id="extSeed" type="number" placeholder="范围：0-2147483647" />
+              </label>
+
+              <label class="form-label">
+                特效模板 ID（template_id，可选）：
+                <input
+                  id="extTemplateId"
+                  type="number"
+                  placeholder="例如 3086387029697416576"
+                />
+              </label>
+
+              <!-- 提交区域 -->
+              <div class="form-actions">
+                <button id="generateExtendBtn" class="btn btn-primary">提交续写视频任务</button>
+              </div>
+            </div>
+          </section>
+
+          <!-- 首尾帧转视频 -->
+          <section id="transitionCard" class="panel panel-transition card">
+            <h2>首尾帧转视频（Transition / First-Last Frame）</h2>
+
+            <!-- 双列网格容器 -->
+            <div class="panel-grid">
+              <!-- 分组：首尾帧上传 -->
+              <h3 class="group-title">上传首尾帧</h3>
+              <div class="form-row">
+                <label class="form-label file-input-row">
+                  首帧图片：
+                  <input id="firstFrameFile" type="file" accept="image/*" class="transition-file-input" />
+                  <span id="firstFrameFileStatus" class="file-status-label inline-status">未选择文件</span>
+                </label>
+              </div>
+
+              <!-- 首帧 img_id -->
+              <div class="form-small transition-id-row">
+                <span>首帧 img_id：<span id="firstFrameImgIdText">尚未上传</span></span>
+              </div>
+
+              <div class="form-row">
+                <label class="form-label file-input-row">
+                  尾帧图片：
+                  <input id="lastFrameFile" type="file" accept="image/*" class="transition-file-input" />
+                  <span id="lastFrameFileStatus" class="file-status-label inline-status">未选择文件</span>
+                </label>
+              </div>
+
+              <!-- 尾帧 img_id -->
+              <div class="form-small transition-id-row">
+                <span>尾帧 img_id：<span id="lastFrameImgIdText">尚未上传</span></span>
+              </div>
+
+              <!-- 分组：提示词与基础参数 -->
+              <h3 class="group-title">提示词与基础参数</h3>
+              <label class="form-label">
+                提示词（prompt）：
+                <textarea id="transitionPrompt"></textarea>
+              </label>
+
+              <div class="form-row">
+                <label class="form-label">
+                  时长：
+                  <select id="transitionDuration">
+                    <option value="5">5 秒</option>
+                    <option value="8">8 秒</option>
+                  </select>
+                </label>
+                <label class="form-label">
+                  模型：
+                  <!-- ★ 已加入 v5，并设为默认选中 -->
+                  <select id="transitionModel">
+                    <option value="v3.5">v3.5</option>
+                    <option value="v4">v4</option>
+                    <option value="v4.5">v4.5</option>
+                    <option value="v5" selected>v5</option>
+                  </select>
+                </label>
+              </div>
+
+              <div class="form-row">
+                <label class="form-label">
+                  清晰度：
+                  <select id="transitionQuality">
+                    <option value="360p">360p</option>
+                    <option value="540p">540p</option>
+                    <option value="720p">720p</option>
+                    <option value="1080p">1080p</option>
+                  </select>
+                </label>
+
+                <label class="form-label">
+                  动作模式：
+                  <select id="transitionMotionMode">
+                    <option value="normal">normal</option>
+                    <option value="fast">fast（仅 5 秒）</option>
+                  </select>
+                </label>
+              </div>
+
+              <!-- 分组：高级设置 -->
+              <h3 class="group-title">高级设置（可选）</h3>
+              <label class="form-label">
+                种子（可选）：
+                <input id="transitionSeed" type="number" placeholder="范围：0-2147483647" />
+              </label>
+
+              <!-- 提交区域 -->
+              <div class="form-actions">
+                <button id="generateTransitionBtn" class="btn btn-primary">
+                  提交首尾帧转视频任务
+                </button>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- 右列：任务状态 & 历史（双栏） -->
+        <div class="workspace-right">
+          <div class="right-columns">
+            <!-- 左侧：任务状态 & 进度 -->
+            <section id="right-status-panel" class="right-panel card">
+              <h2>任务状态 & 进度</h2>
+
+              <label class="form-label">
+                视频 ID（video_id）：
+                <input id="statusVideoId" placeholder="填入 video_id 或点击历史记录" />
+              </label>
+
+              <button id="checkStatusBtn" class="btn btn-outline">查询状态</button>
+
+              <div class="status-block">
+                <div class="status-line">
+                  <span>当前状态：</span>
+                  <span id="statusLabel" class="status-pill status-unknown">未查询</span>
+                </div>
+
+                <div class="progress">
+                  <div id="statusProgressBar" class="progress-bar progress-unknown"></div>
+                </div>
+              </div>
+
+              <div class="raw-header">
+                <h3>原始响应</h3>
+                <button id="toggleRawBtn" class="btn btn-xs">展开</button>
+              </div>
+
+              <pre id="statusRaw" style="display:none;">暂未查询</pre>
+
+              <!-- 固定视频预览框 -->
+              <h3 class="sub-title">视频预览</h3>
+              <div id="statusVideoPreview" class="video-preview">
+                <div class="video-preview-placeholder">
+                  暂无视频预览
+                </div>
+              </div>
+
+              <h3 class="sub-title">视频链接</h3>
+              <div id="videoLinkBox">暂无</div>
+            </section>
+
+            <!-- 右侧：历史记录 -->
+            <section id="right-history-panel" class="right-panel card">
+              <h2>历史记录</h2>
+
+              <div class="form-small">
+                本地保存最近生成记录（video_id / prompt / 来源 / 风格 / 种子）。
+              </div>
+
+              <ul id="historyList" class="history-list"></ul>
+              <div id="historyEmpty" class="empty-tip">暂无记录。</div>
+
+              <div class="history-footer-bar">
+                <div id="historyPagerInfo" class="form-small">第 1 / 1 页，共 0 条</div>
+
+                <div class="history-footer-actions">
+                  <button id="historyPrevBtn" class="btn btn-xs">上一页</button>
+                  <button id="historyNextBtn" class="btn btn-xs">下一页</button>
+                  <button id="historyClearBtn" class="btn btn-xs btn-danger">清空全部</button>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JS 文件 -->
+  <script src="./js/common.js"></script>
+  <script src="./js/textToVideo.js"></script>
+  <script src="./js/imageToVideo.js"></script>
+  <script src="./js/extendVideo.js"></script>
+  <script src="./js/transitionToVideo.js"></script>
+</body>
+</html>
