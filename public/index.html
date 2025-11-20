@@ -182,11 +182,20 @@
 
               <label class="form-label">
                 特效模板 ID（template_id，可选）：
-                <input
-                  id="txtTemplateId"
-                  type="number"
-                  placeholder="例如 3086387029697416576"
-                />
+                <div class="file-input-row">
+                  <input
+                    id="txtTemplateId"
+                    type="number"
+                    placeholder="例如 3086387029697416576"
+                  />
+                  <button
+                    type="button"
+                    class="btn btn-xs"
+                    onclick="window.openEffectSelector('txtTemplateId')"
+                  >
+                    选择特效模板
+                  </button>
+                </div>
               </label>
 
               <!-- 提交区域 -->
@@ -317,11 +326,20 @@
 
               <label class="form-label">
                 特效模板 ID（template_id，可选）：
-                <input
-                  id="imgTemplateId"
-                  type="number"
-                  placeholder="例如 3086387029697416576"
-                />
+                <div class="file-input-row">
+                  <input
+                    id="extTemplateId"
+                    type="number"
+                    placeholder="例如 3086387029697416576"
+                  />
+                  <button
+                    type="button"
+                    class="btn btn-xs"
+                    onclick="window.openEffectSelector('extTemplateId')"
+                  >
+                    选择特效模板
+                  </button>
+                </div>
               </label>
 
               <!-- 提交区域 -->
@@ -435,11 +453,20 @@
 
               <label class="form-label">
                 特效模板 ID（template_id，可选）：
-                <input
-                  id="extTemplateId"
-                  type="number"
-                  placeholder="例如 3086387029697416576"
-                />
+                <div class="file-input-row">
+                  <input
+                    id="extTemplateId"
+                    type="number"
+                    placeholder="例如 3086387029697416576"
+                  />
+                  <button
+                    type="button"
+                    class="btn btn-xs"
+                    onclick="window.openEffectSelector('extTemplateId')"
+                  >
+                    选择特效模板
+                  </button>
+                </div>
               </label>
 
               <!-- 提交区域 -->
@@ -620,9 +647,11 @@
 
   <!-- JS 文件 -->
   <script src="./js/common.js"></script>
+  <script src="./js/effectSelector.js"></script>
   <script src="./js/textToVideo.js"></script>
   <script src="./js/imageToVideo.js"></script>
   <script src="./js/extendVideo.js"></script>
   <script src="./js/transitionToVideo.js"></script>
 </body>
 </html>
+

@@ -1,0 +1,2240 @@
+// effectSelector.js —— 特效模板选择弹窗（本地静态版）
+
+(function () {
+  // ================================
+  // 1. 模板数据（从 PixVerse Effect Center 导出）
+  // ================================
+  const TEMPLATES = [
+  {
+    "id": "351907687030400",
+    "name_zh": "",
+    "name_en": "Hi-Five Emoji Twin",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb-emoji-251107.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb-emoji-251107.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Hi-Five Emoji Twin_cover_web-emoji-251107.gif",
+    "preview_local": "assets/templates/Hi-Five Emoji Twin_cover_web-emoji-251107.gif"
+  },
+  {
+    "id": "367845183423296",
+    "name_zh": "",
+    "name_en": "The Exclusive First Class",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_theexclusivefirstclass_251029.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_theexclusivefirstclass_251029.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/The Exclusive First Class_cover_web_theexclusivefirstclass_251029.gif",
+    "preview_local": "assets/templates/The Exclusive First Class_cover_web_theexclusivefirstclass_251029.gif"
+  },
+  {
+    "id": "367302749516608",
+    "name_zh": "",
+    "name_en": "The Silly Bird Shimmy",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_birdman_251029.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_birdman_251029.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/The Silly Bird Shimmy_cover_web_birdman_251029.gif",
+    "preview_local": "assets/templates/The Silly Bird Shimmy_cover_web_birdman_251029.gif"
+  },
+  {
+    "id": "367828176752256",
+    "name_zh": "",
+    "name_en": "Aşkım Çok Pardon",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_turkey_251029.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_turkey_251029.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Aşkım Çok Pardon_cover_web_turkey_251029.gif",
+    "preview_local": "assets/templates/Aşkım Çok Pardon_cover_web_turkey_251029.gif"
+  },
+  {
+    "id": "365522752365312",
+    "name_zh": "",
+    "name_en": "Summoning Succubus",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_summoningsuccubus_251017.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_summoningsuccubus_251017.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Summoning Succubus_cover_web_summoningsuccubus_251017.gif",
+    "preview_local": "assets/templates/Summoning Succubus_cover_web_summoningsuccubus_251017.gif"
+  },
+  {
+    "id": "365519260162816",
+    "name_zh": "",
+    "name_en": "Skeletal Bae",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_deadlover_251017.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_deadlover_251017.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Skeletal Bae_cover_web_deadlover_251017.gif",
+    "preview_local": "assets/templates/Skeletal Bae_cover_web_deadlover_251017.gif"
+  },
+  {
+    "id": "365496187695872",
+    "name_zh": "",
+    "name_en": "3D Naked-Eye AD",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2F3D%E8%A3%B8%E7%9C%BC%E5%B9%BF%E5%91%8A.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2F3D%E8%A3%B8%E7%9C%BC%E5%B9%BF%E5%91%8A.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/3D Naked-Eye AD_cover_3D裸眼广告.gif",
+    "preview_local": "assets/templates/3D Naked-Eye AD_cover_3D裸眼广告.gif"
+  },
+  {
+    "id": "362350589198976",
+    "name_zh": "",
+    "name_en": "Dragon Evoker",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_dragon_250928.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_dragon_250928.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Dragon Evoker_cover_web_dragon_250928.gif",
+    "preview_local": "assets/templates/Dragon Evoker_cover_web_dragon_250928.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Ghostface Terror",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_scream_250930.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_scream_250930.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Ghostface Terror_cover_web_scream_250930.gif",
+    "preview_local": "assets/templates/Ghostface Terror_cover_web_scream_250930.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Figurine Me Up!",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fapp_3dtoy_250911.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fapp_3dtoy_250911.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Figurine Me Up!_cover_app_3dtoy_250911.gif",
+    "preview_local": "assets/templates/Figurine Me Up!_cover_app_3dtoy_250911.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "3D Figurine Factory",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2F3dtoy_250909.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2F3dtoy_250909.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/3D Figurine Factory_cover_3dtoy_250909.gif",
+    "preview_local": "assets/templates/3D Figurine Factory_cover_3dtoy_250909.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Earth Zoom Challenge",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_earthzoom_250716.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_earthzoom_250716.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Earth Zoom Challenge_cover_web_earthzoom_250716.gif",
+    "preview_local": "assets/templates/Earth Zoom Challenge_cover_web_earthzoom_250716.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Old Photo Revival",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fapi_oldd.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fapi_oldd.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Old Photo Revival_cover_api_oldd.gif",
+    "preview_local": "assets/templates/Old Photo Revival_cover_api_oldd.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "My Destiny Tarot Card",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb-tarot-251107.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb-tarot-251107.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/My Destiny Tarot Card_cover_web-tarot-251107.gif",
+    "preview_local": "assets/templates/My Destiny Tarot Card_cover_web-tarot-251107.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Mechanical Assembly",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2F%E6%9C%BA%E6%A2%B0%E7%BB%84%E8%A3%85.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2F%E6%9C%BA%E6%A2%B0%E7%BB%84%E8%A3%85.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Mechanical Assembly_cover_机械组装.gif",
+    "preview_local": "assets/templates/Mechanical Assembly_cover_机械组装.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Billboard AD",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2F%E5%85%AC%E8%B7%AF%E5%B9%BF%E5%91%8A%E7%89%8C.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2F%E5%85%AC%E8%B7%AF%E5%B9%BF%E5%91%8A%E7%89%8C.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Billboard AD_cover_公路广告牌.gif",
+    "preview_local": "assets/templates/Billboard AD_cover_公路广告牌.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Giant Product",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2F%E5%B7%A8%E5%A4%A7%E8%A1%97%E5%A4%B4%E4%BA%A7%E5%93%81.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2F%E5%B7%A8%E5%A4%A7%E8%A1%97%E5%A4%B4%E4%BA%A7%E5%93%81.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Giant Product_cover_巨大街头产品.gif",
+    "preview_local": "assets/templates/Giant Product_cover_巨大街头产品.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Product close-up",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2F%E4%B8%9D%E7%BB%B8%E7%8E%AF%E5%A2%83.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2F%E4%B8%9D%E7%BB%B8%E7%8E%AF%E5%A2%83.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Product close-up_cover_丝绸环境.gif",
+    "preview_local": "assets/templates/Product close-up_cover_丝绸环境.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Beach AD",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2F%E6%B2%99%E6%BB%A91.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2F%E6%B2%99%E6%BB%A91.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Beach AD_cover_沙滩1.gif",
+    "preview_local": "assets/templates/Beach AD_cover_沙滩1.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "The Rose and Freedom",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_theroseandfreedom_251103.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_theroseandfreedom_251103.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/The Rose and Freedom_cover_web_theroseandfreedom_251103.gif",
+    "preview_local": "assets/templates/The Rose and Freedom_cover_web_theroseandfreedom_251103.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "AI Museum Portrait",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_aimuseum_251103.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_aimuseum_251103.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/AI Museum Portrait_cover_web_aimuseum_251103.gif",
+    "preview_local": "assets/templates/AI Museum Portrait_cover_web_aimuseum_251103.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Truck Fashion Shoot",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2F%E8%B4%A7%E8%BD%A6%E6%97%B6%E5%B0%9A%E5%B9%BF%E5%91%8A1.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2F%E8%B4%A7%E8%BD%A6%E6%97%B6%E5%B0%9A%E5%B9%BF%E5%91%8A1.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Truck Fashion Shoot_cover_货车时尚广告1.gif",
+    "preview_local": "assets/templates/Truck Fashion Shoot_cover_货车时尚广告1.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Shoal Surround",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2F%E9%B1%BC%E7%BE%A4%E7%8E%AF%E7%BB%95.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2F%E9%B1%BC%E7%BE%A4%E7%8E%AF%E7%BB%95.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Shoal Surround_cover_鱼群环绕.gif",
+    "preview_local": "assets/templates/Shoal Surround_cover_鱼群环绕.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Parachute Delivery",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2F%E9%99%8D%E8%90%BD%E4%BC%9E.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2F%E9%99%8D%E8%90%BD%E4%BC%9E.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Parachute Delivery_cover_降落伞.gif",
+    "preview_local": "assets/templates/Parachute Delivery_cover_降落伞.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Lighting AD",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2F%E5%85%89%E5%BD%B1%E6%B0%B4%E6%B3%A2%E7%BA%B9.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2F%E5%85%89%E5%BD%B1%E6%B0%B4%E6%B3%A2%E7%BA%B9.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Lighting AD_cover_光影水波纹.gif",
+    "preview_local": "assets/templates/Lighting AD_cover_光影水波纹.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Dreamlike Cloud",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2F%E4%BA%91%E6%9C%B5%E5%B9%BF%E5%91%8A2.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2F%E4%BA%91%E6%9C%B5%E5%B9%BF%E5%91%8A2.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Dreamlike Cloud_cover_云朵广告2.gif",
+    "preview_local": "assets/templates/Dreamlike Cloud_cover_云朵广告2.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Welcome to Meowverse",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2FWeb_welcometomeowverse_251029.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2FWeb_welcometomeowverse_251029.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Welcome to Meowverse_cover_Web_welcometomeowverse_251029.gif",
+    "preview_local": "assets/templates/Welcome to Meowverse_cover_Web_welcometomeowverse_251029.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Muertos Cha-Cha",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_deaddance_251027.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_deaddance_251027.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Muertos Cha-Cha_cover_web_deaddance_251027.gif",
+    "preview_local": "assets/templates/Muertos Cha-Cha_cover_web_deaddance_251027.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "I Quit",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_iquit_251023.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_iquit_251023.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/I Quit_cover_web_iquit_251023.gif",
+    "preview_local": "assets/templates/I Quit_cover_web_iquit_251023.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Why Don’t You Call Me Godfather",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_whydidn%E2%80%99tyoucallmegodfather_252026.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_whydidn%E2%80%99tyoucallmegodfather_252026.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Why Don’t You Call Me Godfather_cover_web_whydidn’tyoucallmegodfather_252026.gif",
+    "preview_local": "assets/templates/Why Don’t You Call Me Godfather_cover_web_whydidn’tyoucallmegodfather_252026.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Test Your Workplace Persona",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_testyourworkplacepersona_251027.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_testyourworkplacepersona_251027.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Test Your Workplace Persona_cover_web_testyourworkplacepersona_251027.gif",
+    "preview_local": "assets/templates/Test Your Workplace Persona_cover_web_testyourworkplacepersona_251027.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "God Wing Gacha",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_3gods_251022.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_3gods_251022.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/God Wing Gacha_cover_web_3gods_251022.gif",
+    "preview_local": "assets/templates/God Wing Gacha_cover_web_3gods_251022.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Elevator photoshoot",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_Elevator+photoshoot%E6%9C%89bgm1_251013.MP3.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_Elevator+photoshoot%E6%9C%89bgm1_251013.MP3.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Elevator photoshoot_cover_web_Elevator+photoshoot有bgm1_251013.MP3.gif",
+    "preview_local": "assets/templates/Elevator photoshoot_cover_web_Elevator+photoshoot有bgm1_251013.MP3.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Hug Lord Ganesha",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_india_250905.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_india_250905.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Hug Lord Ganesha_cover_web_india_250905.gif",
+    "preview_local": "assets/templates/Hug Lord Ganesha_cover_web_india_250905.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Pixel World",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fapp_pixel.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fapp_pixel.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Pixel World_cover_app_pixel.gif",
+    "preview_local": "assets/templates/Pixel World_cover_app_pixel.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Alien Kidnap",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_alien_251110.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_alien_251110.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Alien Kidnap_cover_web_alien_251110.gif",
+    "preview_local": "assets/templates/Alien Kidnap_cover_web_alien_251110.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "2025 Oscar Winner",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb-winner-251109.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb-winner-251109.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/2025 Oscar Winner_cover_web-winner-251109.gif",
+    "preview_local": "assets/templates/2025 Oscar Winner_cover_web-winner-251109.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Honey Bee Magic",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb-bee-251109.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb-bee-251109.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Honey Bee Magic_cover_web-bee-251109.gif",
+    "preview_local": "assets/templates/Honey Bee Magic_cover_web-bee-251109.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Simpsons Homie",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb-homie-251109.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb-homie-251109.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Simpsons Homie_cover_web-homie-251109.gif",
+    "preview_local": "assets/templates/Simpsons Homie_cover_web-homie-251109.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Shake Shake Disco",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb-shake-251109.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb-shake-251109.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Shake Shake Disco_cover_web-shake-251109.gif",
+    "preview_local": "assets/templates/Shake Shake Disco_cover_web-shake-251109.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Born to Barbie",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb-babii-251109.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb-babii-251109.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Born to Barbie_cover_web-babii-251109.gif",
+    "preview_local": "assets/templates/Born to Barbie_cover_web-babii-251109.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Dream Mount",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb-dreammount-251109.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb-dreammount-251109.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Dream Mount_cover_web-dreammount-251109.gif",
+    "preview_local": "assets/templates/Dream Mount_cover_web-dreammount-251109.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Just a Friend?",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb-justafriend-251109.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb-justafriend-251109.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Just a Friend__cover_web-justafriend-251109.gif",
+    "preview_local": "assets/templates/Just a Friend__cover_web-justafriend-251109.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Bald Swipe",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_bald_250528.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_bald_250528.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Bald Swipe_cover_web_bald_250528.gif",
+    "preview_local": "assets/templates/Bald Swipe_cover_web_bald_250528.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "My MV Highlight Reel",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb-mv-251107.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb-mv-251107.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/My MV Highlight Reel_cover_web-mv-251107.gif",
+    "preview_local": "assets/templates/My MV Highlight Reel_cover_web-mv-251107.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Anime Magic",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb-anime-251107.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb-anime-251107.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Anime Magic_cover_web-anime-251107.gif",
+    "preview_local": "assets/templates/Anime Magic_cover_web-anime-251107.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Halloween Voodoo Doll",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb-doll-251107.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb-doll-251107.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Halloween Voodoo Doll_cover_web-doll-251107.gif",
+    "preview_local": "assets/templates/Halloween Voodoo Doll_cover_web-doll-251107.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Grow Up",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb-335104003407232-251107.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb-335104003407232-251107.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Grow Up_cover_web-335104003407232-251107.gif",
+    "preview_local": "assets/templates/Grow Up_cover_web-335104003407232-251107.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Hug Together",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2F340712049100608_251107.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2F340712049100608_251107.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Hug Together_cover_340712049100608_251107.gif",
+    "preview_local": "assets/templates/Hug Together_cover_340712049100608_251107.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Macaron Machine",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2F%E6%89%AD%E8%9B%8B%E6%9C%BA%E7%88%86%E7%82%B8%E5%B9%BF%E5%91%8A2.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2F%E6%89%AD%E8%9B%8B%E6%9C%BA%E7%88%86%E7%82%B8%E5%B9%BF%E5%91%8A2.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Macaron Machine_cover_扭蛋机爆炸广告2.gif",
+    "preview_local": "assets/templates/Macaron Machine_cover_扭蛋机爆炸广告2.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Escape from Nightmare",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_escapefromnightmarexiugai_251016.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_escapefromnightmarexiugai_251016.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Escape from Nightmare_cover_web_escapefromnightmarexiugai_251016.gif",
+    "preview_local": "assets/templates/Escape from Nightmare_cover_web_escapefromnightmarexiugai_251016.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Diwali Radiance",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_diwali_251021.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_diwali_251021.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Diwali Radiance_cover_web_diwali_251021.gif",
+    "preview_local": "assets/templates/Diwali Radiance_cover_web_diwali_251021.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Pole Split Vixen",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_newpole_251023.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_newpole_251023.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Pole Split Vixen_cover_web_newpole_251023.gif",
+    "preview_local": "assets/templates/Pole Split Vixen_cover_web_newpole_251023.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Happy Chunk",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_happychunk_251024.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_happychunk_251024.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Happy Chunk_cover_web_happychunk_251024.gif",
+    "preview_local": "assets/templates/Happy Chunk_cover_web_happychunk_251024.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Baby Wave",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_babywave_251024.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_babywave_251024.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Baby Wave_cover_web_babywave_251024.gif",
+    "preview_local": "assets/templates/Baby Wave_cover_web_babywave_251024.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Buddha’s Blessing",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_buddha_250814.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_buddha_250814.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Buddha’s Blessing_cover_web_buddha_250814.gif",
+    "preview_local": "assets/templates/Buddha’s Blessing_cover_web_buddha_250814.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Ruin Your Vow",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_bride_250801.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_bride_250801.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Ruin Your Vow_cover_web_bride_250801.gif",
+    "preview_local": "assets/templates/Ruin Your Vow_cover_web_bride_250801.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Middle Finger Up",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_finger_250808.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_finger_250808.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Middle Finger Up_cover_web_finger_250808.gif",
+    "preview_local": "assets/templates/Middle Finger Up_cover_web_finger_250808.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Insta-Bangs Spray",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_spray_250904.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_spray_250904.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Insta-Bangs Spray_cover_web_spray_250904.gif",
+    "preview_local": "assets/templates/Insta-Bangs Spray_cover_web_spray_250904.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Octopus Invasion",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_anemone_250903.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_anemone_250903.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Octopus Invasion_cover_web_anemone_250903.gif",
+    "preview_local": "assets/templates/Octopus Invasion_cover_web_anemone_250903.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Skull Multiverse",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_skull_250825.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_skull_250825.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Skull Multiverse_cover_web_skull_250825.gif",
+    "preview_local": "assets/templates/Skull Multiverse_cover_web_skull_250825.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Kitten Hide and Seek",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_250815_2.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_250815_2.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Kitten Hide and Seek_cover_web_250815_2.gif",
+    "preview_local": "assets/templates/Kitten Hide and Seek_cover_web_250815_2.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Coral Dreamscape",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_coral_250903.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_coral_250903.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Coral Dreamscape_cover_web_coral_250903.gif",
+    "preview_local": "assets/templates/Coral Dreamscape_cover_web_coral_250903.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Lionfish Venomous",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_lionfish_250903.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_lionfish_250903.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Lionfish Venomous_cover_web_lionfish_250903.gif",
+    "preview_local": "assets/templates/Lionfish Venomous_cover_web_lionfish_250903.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Ninja Shadow Clone",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_clone_250814.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_clone_250814.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Ninja Shadow Clone_cover_web_clone_250814.gif",
+    "preview_local": "assets/templates/Ninja Shadow Clone_cover_web_clone_250814.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Shark Shadows",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_shark_250903.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_shark_250903.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Shark Shadows_cover_web_shark_250903.gif",
+    "preview_local": "assets/templates/Shark Shadows_cover_web_shark_250903.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Kiss Me to Heaven",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_wetkiss_250910.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_wetkiss_250910.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Kiss Me to Heaven_cover_web_wetkiss_250910.gif",
+    "preview_local": "assets/templates/Kiss Me to Heaven_cover_web_wetkiss_250910.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Vampire Royalty",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_vampire_250911.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_vampire_250911.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Vampire Royalty_cover_web_vampire_250911.gif",
+    "preview_local": "assets/templates/Vampire Royalty_cover_web_vampire_250911.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Graffiti AD",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2F%E6%B6%82%E9%B8%A6%E7%89%B9%E6%95%88.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2F%E6%B6%82%E9%B8%A6%E7%89%B9%E6%95%88.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Graffiti AD_cover_涂鸦特效.gif",
+    "preview_local": "assets/templates/Graffiti AD_cover_涂鸦特效.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Ocean ad",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2F%E6%B5%B7%E6%B4%8B%E5%8C%96%E5%A6%86%E5%93%81.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2F%E6%B5%B7%E6%B4%8B%E5%8C%96%E5%A6%86%E5%93%81.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Ocean ad_cover_海洋化妆品.gif",
+    "preview_local": "assets/templates/Ocean ad_cover_海洋化妆品.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Package Explosion",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2F%E9%A3%9F%E5%93%81%E5%8C%85%E8%A3%85.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2F%E9%A3%9F%E5%93%81%E5%8C%85%E8%A3%85.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Package Explosion_cover_食品包装.gif",
+    "preview_local": "assets/templates/Package Explosion_cover_食品包装.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Officer Crush",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fapi_officer.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fapi_officer.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Officer Crush_cover_api_officer.gif",
+    "preview_local": "assets/templates/Officer Crush_cover_api_officer.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Birthday Surprise",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fapi_birthday.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fapi_birthday.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Birthday Surprise_cover_api_birthday.gif",
+    "preview_local": "assets/templates/Birthday Surprise_cover_api_birthday.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Muscle Pro: Born to Built",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_muscle_250914.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_muscle_250914.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Muscle Pro_ Born to Built_cover_web_muscle_250914.gif",
+    "preview_local": "assets/templates/Muscle Pro_ Born to Built_cover_web_muscle_250914.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Mwah Mwah",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_kiss2_250805.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_kiss2_250805.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Mwah Mwah_cover_web_kiss2_250805.gif",
+    "preview_local": "assets/templates/Mwah Mwah_cover_web_kiss2_250805.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Poster AD",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2F%E6%B5%B7%E6%8A%A5%E5%B9%BF%E5%91%8A.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2F%E6%B5%B7%E6%8A%A5%E5%B9%BF%E5%91%8A.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Poster AD_cover_海报广告.gif",
+    "preview_local": "assets/templates/Poster AD_cover_海报广告.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Fisheye sunglasses",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2F%C2%B7%E9%B1%BC%E7%9C%BC%E5%A2%A8%E9%95%9C.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2F%C2%B7%E9%B1%BC%E7%9C%BC%E5%A2%A8%E9%95%9C.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Fisheye sunglasses_cover_·鱼眼墨镜.gif",
+    "preview_local": "assets/templates/Fisheye sunglasses_cover_·鱼眼墨镜.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Truck AD",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2F%E5%8D%A1%E8%BD%A6%E5%B9%BF%E5%91%8A.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2F%E5%8D%A1%E8%BD%A6%E5%B9%BF%E5%91%8A.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Truck AD_cover_卡车广告.gif",
+    "preview_local": "assets/templates/Truck AD_cover_卡车广告.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Supermarket AD",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2F%E9%A3%9F%E5%93%81%E8%B4%A7%E6%9E%B62.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2F%E9%A3%9F%E5%93%81%E8%B4%A7%E6%9E%B62.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Supermarket AD_cover_食品货架2.gif",
+    "preview_local": "assets/templates/Supermarket AD_cover_食品货架2.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Dishes Served",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2F%E7%BE%8E%E9%A3%9F%E7%9B%9B%E5%AE%B4.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2F%E7%BE%8E%E9%A3%9F%E7%9B%9B%E5%AE%B4.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Dishes Served_cover_美食盛宴.gif",
+    "preview_local": "assets/templates/Dishes Served_cover_美食盛宴.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "5 clips transition",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fasset_template_appzhoujielun_250711.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fasset_template_appzhoujielun_250711.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/5 clips transition_cover_asset_template_appzhoujielun_250711.gif",
+    "preview_local": "assets/templates/5 clips transition_cover_asset_template_appzhoujielun_250711.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Change My Outfit",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_changemyoutfit_250604.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_changemyoutfit_250604.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Change My Outfit_cover_web_changemyoutfit_250604.gif",
+    "preview_local": "assets/templates/Change My Outfit_cover_web_changemyoutfit_250604.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Winged Wardrobe",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_winged_0623.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_winged_0623.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Winged Wardrobe_cover_web_winged_0623.gif",
+    "preview_local": "assets/templates/Winged Wardrobe_cover_web_winged_0623.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Forever Us",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fwedding_250321.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fwedding_250321.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Forever Us_cover_wedding_250321.gif",
+    "preview_local": "assets/templates/Forever Us_cover_wedding_250321.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Transition",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_transition_250422.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_transition_250422.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Transition_cover_web_transition_250422.gif",
+    "preview_local": "assets/templates/Transition_cover_web_transition_250422.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "My Boyfriendsssss",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_yourboys_250716.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_yourboys_250716.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/My Boyfriendsssss_cover_web_yourboys_250716.gif",
+    "preview_local": "assets/templates/My Boyfriendsssss_cover_web_yourboys_250716.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "I Believe I Can Fly",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_fly_250725.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_fly_250725.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/I Believe I Can Fly_cover_web_fly_250725.gif",
+    "preview_local": "assets/templates/I Believe I Can Fly_cover_web_fly_250725.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Muscle Max: Bodybuilder Champion",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_muscleplus_250723.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_muscleplus_250723.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Muscle Max_ Bodybuilder Champion_cover_web_muscleplus_250723.gif",
+    "preview_local": "assets/templates/Muscle Max_ Bodybuilder Champion_cover_web_muscleplus_250723.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Drunk Pole Dance",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_poledance_250731.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_poledance_250731.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Drunk Pole Dance_cover_web_poledance_250731.gif",
+    "preview_local": "assets/templates/Drunk Pole Dance_cover_web_poledance_250731.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "My Girlfriendssss",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_yourgirls_250716.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_yourgirls_250716.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/My Girlfriendssss_cover_web_yourgirls_250716.gif",
+    "preview_local": "assets/templates/My Girlfriendssss_cover_web_yourgirls_250716.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Haunting Doll",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_tim_250917.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_tim_250917.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Haunting Doll_cover_web_tim_250917.gif",
+    "preview_local": "assets/templates/Haunting Doll_cover_web_tim_250917.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Hitchcock Dolly Zoom",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_hitchcock_2500622.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_hitchcock_2500622.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Hitchcock Dolly Zoom_cover_web_hitchcock_2500622.gif",
+    "preview_local": "assets/templates/Hitchcock Dolly Zoom_cover_web_hitchcock_2500622.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "US Yearbook Flash",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_usid_250706.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_usid_250706.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/US Yearbook Flash_cover_web_usid_250706.gif",
+    "preview_local": "assets/templates/US Yearbook Flash_cover_web_usid_250706.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Petals of Goodbye",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fapi_petal.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fapi_petal.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Petals of Goodbye_cover_api_petal.gif",
+    "preview_local": "assets/templates/Petals of Goodbye_cover_api_petal.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Smell the Lens",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_fisheye_250720.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_fisheye_250720.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Smell the Lens_cover_web_fisheye_250720.gif",
+    "preview_local": "assets/templates/Smell the Lens_cover_web_fisheye_250720.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Emoji Check!",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_phoneemoji_250731.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_phoneemoji_250731.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Emoji Check!_cover_web_phoneemoji_250731.gif",
+    "preview_local": "assets/templates/Emoji Check!_cover_web_phoneemoji_250731.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Beam Me Up",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_blue_250725.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_blue_250725.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Beam Me Up_cover_web_blue_250725.gif",
+    "preview_local": "assets/templates/Beam Me Up_cover_web_blue_250725.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Kungfu Club",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fapi_fight.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fapi_fight.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Kungfu Club_cover_api_fight.gif",
+    "preview_local": "assets/templates/Kungfu Club_cover_api_fight.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Sharksnap!",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_shark_250617.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_shark_250617.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Sharksnap!_cover_web_shark_250617.gif",
+    "preview_local": "assets/templates/Sharksnap!_cover_web_shark_250617.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Li Xi Cheng Merch",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_lixicheng_250626.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_lixicheng_250626.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Li Xi Cheng Merch_cover_web_lixicheng_250626.gif",
+    "preview_local": "assets/templates/Li Xi Cheng Merch_cover_web_lixicheng_250626.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Shake It to the Max",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_shakeitmax_250626.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_shakeitmax_250626.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Shake It to the Max_cover_web_shakeitmax_250626.gif",
+    "preview_local": "assets/templates/Shake It to the Max_cover_web_shakeitmax_250626.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Subject 3 Fever",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_subject3_250318.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_subject3_250318.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Subject 3 Fever_cover_web_subject3_250318.gif",
+    "preview_local": "assets/templates/Subject 3 Fever_cover_web_subject3_250318.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Welcome to My House",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_house_250711.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_house_250711.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Welcome to My House_cover_web_house_250711.gif",
+    "preview_local": "assets/templates/Welcome to My House_cover_web_house_250711.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Ride My Porsche",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fapi_carrr.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fapi_carrr.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Ride My Porsche_cover_api_carrr.gif",
+    "preview_local": "assets/templates/Ride My Porsche_cover_api_carrr.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Somber Embrace",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_blackwings_0609.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_blackwings_0609.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Somber Embrace_cover_web_blackwings_0609.gif",
+    "preview_local": "assets/templates/Somber Embrace_cover_web_blackwings_0609.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Rain of Redemption",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_shawshank_250622.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_shawshank_250622.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Rain of Redemption_cover_web_shawshank_250622.gif",
+    "preview_local": "assets/templates/Rain of Redemption_cover_web_shawshank_250622.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Vroom Vroom Step",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fapi_vroomdance.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fapi_vroomdance.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Vroom Vroom Step_cover_api_vroomdance.gif",
+    "preview_local": "assets/templates/Vroom Vroom Step_cover_api_vroomdance.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Liquid Metal",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_metal_250606.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_metal_250606.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Liquid Metal_cover_web_metal_250606.gif",
+    "preview_local": "assets/templates/Liquid Metal_cover_web_metal_250606.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Mint in Box",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_toyfigure_250421.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_toyfigure_250421.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Mint in Box_cover_web_toyfigure_250421.gif",
+    "preview_local": "assets/templates/Mint in Box_cover_web_toyfigure_250421.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Private Airplane",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_jet_250708.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_jet_250708.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Private Airplane_cover_web_jet_250708.gif",
+    "preview_local": "assets/templates/Private Airplane_cover_web_jet_250708.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Thunder God",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_thunder_250527.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_thunder_250527.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Thunder God_cover_web_thunder_250527.gif",
+    "preview_local": "assets/templates/Thunder God_cover_web_thunder_250527.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Love Punch",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_lovepunch2_250521.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_lovepunch2_250521.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Love Punch_cover_web_lovepunch2_250521.gif",
+    "preview_local": "assets/templates/Love Punch_cover_web_lovepunch2_250521.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Skeleton Dance",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_skeleton_250513.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_skeleton_250513.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Skeleton Dance_cover_web_skeleton_250513.gif",
+    "preview_local": "assets/templates/Skeleton Dance_cover_web_skeleton_250513.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "PUBG Winner Hit",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_winnerdance_250513.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_winnerdance_250513.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/PUBG Winner Hit_cover_web_winnerdance_250513.gif",
+    "preview_local": "assets/templates/PUBG Winner Hit_cover_web_winnerdance_250513.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Gabu Dance",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_gabudance_0625.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_gabudance_0625.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Gabu Dance_cover_web_gabudance_0625.gif",
+    "preview_local": "assets/templates/Gabu Dance_cover_web_gabudance_0625.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Rat Dance Killer",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_ratdance_250626.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_ratdance_250626.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Rat Dance Killer_cover_web_ratdance_250626.gif",
+    "preview_local": "assets/templates/Rat Dance Killer_cover_web_ratdance_250626.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "PASSO BEM SOLTO",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_passodance_250626.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_passodance_250626.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/PASSO BEM SOLTO_cover_web_passodance_250626.gif",
+    "preview_local": "assets/templates/PASSO BEM SOLTO_cover_web_passodance_250626.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Anime Story",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_ghibli_250402.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_ghibli_250402.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Anime Story_cover_web_ghibli_250402.gif",
+    "preview_local": "assets/templates/Anime Story_cover_web_ghibli_250402.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Suit Swagger",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fapi_suit.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fapi_suit.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Suit Swagger_cover_api_suit.gif",
+    "preview_local": "assets/templates/Suit Swagger_cover_api_suit.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Monster Invades",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_monsterinvade2.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_monsterinvade2.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Monster Invades_cover_web_monsterinvade2.gif",
+    "preview_local": "assets/templates/Monster Invades_cover_web_monsterinvade2.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Money Tornado",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_money360_250326.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_money360_250326.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Money Tornado_cover_web_money360_250326.gif",
+    "preview_local": "assets/templates/Money Tornado_cover_web_money360_250326.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Eye Zoom Challenge",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_eye_250524.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_eye_250524.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Eye Zoom Challenge_cover_web_eye_250524.gif",
+    "preview_local": "assets/templates/Eye Zoom Challenge_cover_web_eye_250524.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Cry Me a River",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_tears_250508.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_tears_250508.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Cry Me a River_cover_web_tears_250508.gif",
+    "preview_local": "assets/templates/Cry Me a River_cover_web_tears_250508.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Fish Dreamcore",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_fish_250603.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_fish_250603.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Fish Dreamcore_cover_web_fish_250603.gif",
+    "preview_local": "assets/templates/Fish Dreamcore_cover_web_fish_250603.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Polar Bear Shock",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_polarbear_250304.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_polarbear_250304.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Polar Bear Shock_cover_web_polarbear_250304.gif",
+    "preview_local": "assets/templates/Polar Bear Shock_cover_web_polarbear_250304.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Hands Up! Hands Up!",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_handsup_250626.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_handsup_250626.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Hands Up! Hands Up!_cover_web_handsup_250626.gif",
+    "preview_local": "assets/templates/Hands Up! Hands Up!_cover_web_handsup_250626.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Carnival Queen",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_carnival_250308.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_carnival_250308.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Carnival Queen_cover_web_carnival_250308.gif",
+    "preview_local": "assets/templates/Carnival Queen_cover_web_carnival_250308.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Anything, Robot",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_robot_250207.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_robot_250207.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Anything, Robot_cover_web_robot_250207.gif",
+    "preview_local": "assets/templates/Anything, Robot_cover_web_robot_250207.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Smoking Vibe",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fwebsmoke250113.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fwebsmoke250113.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Smoking Vibe_cover_websmoke250113.gif",
+    "preview_local": "assets/templates/Smoking Vibe_cover_websmoke250113.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Snake Snuggle",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_chinesesnake_250127.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_chinesesnake_250127.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Snake Snuggle_cover_web_chinesesnake_250127.gif",
+    "preview_local": "assets/templates/Snake Snuggle_cover_web_chinesesnake_250127.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Let's YMCA!",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_ymca_250423.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_ymca_250423.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Let's YMCA!_cover_web_ymca_250423.gif",
+    "preview_local": "assets/templates/Let's YMCA!_cover_web_ymca_250423.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Night Night",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_sleep_250314.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_sleep_250314.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Night Night_cover_web_sleep_250314.gif",
+    "preview_local": "assets/templates/Night Night_cover_web_sleep_250314.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Red or White?",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fapi_haircolor.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fapi_haircolor.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Red or White__cover_api_haircolor.gif",
+    "preview_local": "assets/templates/Red or White__cover_api_haircolor.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Huge Cutie",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_hugecutie_250327.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_hugecutie_250327.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Huge Cutie_cover_web_hugecutie_250327.gif",
+    "preview_local": "assets/templates/Huge Cutie_cover_web_hugecutie_250327.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Baby Arrived",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_getbaby_250611.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_getbaby_250611.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Baby Arrived_cover_web_getbaby_250611.gif",
+    "preview_local": "assets/templates/Baby Arrived_cover_web_getbaby_250611.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Neymar DJ Dance",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_neymardance_0624.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_neymardance_0624.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Neymar DJ Dance_cover_web_neymardance_0624.gif",
+    "preview_local": "assets/templates/Neymar DJ Dance_cover_web_neymardance_0624.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Wizard Hat",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_wizardhat.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_wizardhat.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Wizard Hat_cover_web_wizardhat.gif",
+    "preview_local": "assets/templates/Wizard Hat_cover_web_wizardhat.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Zombie Hand",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_zombiehand.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_zombiehand.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Zombie Hand_cover_web_zombiehand.gif",
+    "preview_local": "assets/templates/Zombie Hand_cover_web_zombiehand.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "99 Problems 1 Solution",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fapi_991.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fapi_991.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/99 Problems 1 Solution_cover_api_991.gif",
+    "preview_local": "assets/templates/99 Problems 1 Solution_cover_api_991.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Jellycat Everything",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fapi_jellytoy.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fapi_jellytoy.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Jellycat Everything_cover_api_jellytoy.gif",
+    "preview_local": "assets/templates/Jellycat Everything_cover_api_jellytoy.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Trippy Lilies",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fapi_lilies.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fapi_lilies.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Trippy Lilies_cover_api_lilies.gif",
+    "preview_local": "assets/templates/Trippy Lilies_cover_api_lilies.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Werewolf Rage",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_werewolf_250430.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_werewolf_250430.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Werewolf Rage_cover_web_werewolf_250430.gif",
+    "preview_local": "assets/templates/Werewolf Rage_cover_web_werewolf_250430.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Past Life Job",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_job_250624.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_job_250624.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Past Life Job_cover_web_job_250624.gif",
+    "preview_local": "assets/templates/Past Life Job_cover_web_job_250624.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Bikini Up!",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_bikini_250218.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_bikini_250218.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Bikini Up!_cover_web_bikini_250218.gif",
+    "preview_local": "assets/templates/Bikini Up!_cover_web_bikini_250218.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Vogue Walk",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_model_250312.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_model_250312.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Vogue Walk_cover_web_model_250312.gif",
+    "preview_local": "assets/templates/Vogue Walk_cover_web_model_250312.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Jiggle Jiggle",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_jiggle_250422.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_jiggle_250422.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Jiggle Jiggle_cover_web_jiggle_250422.gif",
+    "preview_local": "assets/templates/Jiggle Jiggle_cover_web_jiggle_250422.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Balloon Belly",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_belly_250508.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_belly_250508.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Balloon Belly_cover_web_belly_250508.gif",
+    "preview_local": "assets/templates/Balloon Belly_cover_web_belly_250508.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Fairy Wings",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_sprite_250605.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_sprite_250605.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Fairy Wings_cover_web_sprite_250605.gif",
+    "preview_local": "assets/templates/Fairy Wings_cover_web_sprite_250605.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Blueprint Supreme",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_dazhanhongtu_250710.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_dazhanhongtu_250710.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Blueprint Supreme_cover_web_dazhanhongtu_250710.gif",
+    "preview_local": "assets/templates/Blueprint Supreme_cover_web_dazhanhongtu_250710.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Warmth of Jesus",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_jesus_250116.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_jesus_250116.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Warmth of Jesus_cover_web_jesus_250116.gif",
+    "preview_local": "assets/templates/Warmth of Jesus_cover_web_jesus_250116.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Clay Fool",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_clay_250423.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_clay_250423.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Clay Fool_cover_web_clay_250423.gif",
+    "preview_local": "assets/templates/Clay Fool_cover_web_clay_250423.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Sharking Summer",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_skark_250608.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_skark_250608.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Sharking Summer_cover_web_skark_250608.gif",
+    "preview_local": "assets/templates/Sharking Summer_cover_web_skark_250608.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Dust Me Away",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fapi_part.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fapi_part.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Dust Me Away_cover_api_part.gif",
+    "preview_local": "assets/templates/Dust Me Away_cover_api_part.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Cleopatra Reborn",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_cleopatra_250613.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_cleopatra_250613.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Cleopatra Reborn_cover_web_cleopatra_250613.gif",
+    "preview_local": "assets/templates/Cleopatra Reborn_cover_web_cleopatra_250613.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "BOOM DROP",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_explode_250520.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_explode_250520.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/BOOM DROP_cover_web_explode_250520.gif",
+    "preview_local": "assets/templates/BOOM DROP_cover_web_explode_250520.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "360° Microwave",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_360_250227.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_360_250227.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/360° Microwave_cover_web_360_250227.gif",
+    "preview_local": "assets/templates/360° Microwave_cover_web_360_250227.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Holy Wings",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_anglewings_250208.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_anglewings_250208.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Holy Wings_cover_web_anglewings_250208.gif",
+    "preview_local": "assets/templates/Holy Wings_cover_web_anglewings_250208.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Punch Face",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_punch_250515.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_punch_250515.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Punch Face_cover_web_punch_250515.gif",
+    "preview_local": "assets/templates/Punch Face_cover_web_punch_250515.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Emergency Beat",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_emergency_250409.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_emergency_250409.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Emergency Beat_cover_web_emergency_250409.gif",
+    "preview_local": "assets/templates/Emergency Beat_cover_web_emergency_250409.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Pomba Gira Slay",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_pombagira_250213.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_pombagira_250213.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Pomba Gira Slay_cover_web_pombagira_250213.gif",
+    "preview_local": "assets/templates/Pomba Gira Slay_cover_web_pombagira_250213.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Zombie Mode",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_zombiemode.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_zombiemode.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Zombie Mode_cover_web_zombiemode.gif",
+    "preview_local": "assets/templates/Zombie Mode_cover_web_zombiemode.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Creepy Devil Smile",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_creepy_250516.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_creepy_250516.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Creepy Devil Smile_cover_web_creepy_250516.gif",
+    "preview_local": "assets/templates/Creepy Devil Smile_cover_web_creepy_250516.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Sakura Flood",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_sakura_250305.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_sakura_250305.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Sakura Flood_cover_web_sakura_250305.gif",
+    "preview_local": "assets/templates/Sakura Flood_cover_web_sakura_250305.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Paw Princess",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_dresspet_250401.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_dresspet_250401.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Paw Princess_cover_web_dresspet_250401.gif",
+    "preview_local": "assets/templates/Paw Princess_cover_web_dresspet_250401.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Kiss Kiss",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_kisskiss_0610.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_kisskiss_0610.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Kiss Kiss_cover_web_kisskiss_0610.gif",
+    "preview_local": "assets/templates/Kiss Kiss_cover_web_kisskiss_0610.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "KILL BILL",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_killbill_250424.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_killbill_250424.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/KILL BILL_cover_web_killbill_250424.gif",
+    "preview_local": "assets/templates/KILL BILL_cover_web_killbill_250424.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Mega Dive",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_diving_250410.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_diving_250410.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Mega Dive_cover_web_diving_250410.gif",
+    "preview_local": "assets/templates/Mega Dive_cover_web_diving_250410.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Kiss Me, AI!",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_ailover_250212.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_ailover_250212.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Kiss Me, AI!_cover_web_ailover_250212.gif",
+    "preview_local": "assets/templates/Kiss Me, AI!_cover_web_ailover_250212.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "APT. Dance Challenge",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_apt_0624.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_apt_0624.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/APT. Dance Challenge_cover_web_apt_0624.gif",
+    "preview_local": "assets/templates/APT. Dance Challenge_cover_web_apt_0624.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Hug Your Love",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_hugyourlove2_250512.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_hugyourlove2_250512.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Hug Your Love_cover_web_hugyourlove2_250512.gif",
+    "preview_local": "assets/templates/Hug Your Love_cover_web_hugyourlove2_250512.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Retro Anime Pop",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_anime_250415.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_anime_250415.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Retro Anime Pop_cover_web_anime_250415.gif",
+    "preview_local": "assets/templates/Retro Anime Pop_cover_web_anime_250415.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Baby Shroom",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_babybite_250526.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_babybite_250526.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Baby Shroom_cover_web_babybite_250526.gif",
+    "preview_local": "assets/templates/Baby Shroom_cover_web_babybite_250526.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Gender Swap",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fapi_genderchangee.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fapi_genderchangee.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Gender Swap_cover_api_genderchangee.gif",
+    "preview_local": "assets/templates/Gender Swap_cover_api_genderchangee.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Sheep Curls",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_curlyhair.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_curlyhair.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Sheep Curls_cover_web_curlyhair.gif",
+    "preview_local": "assets/templates/Sheep Curls_cover_web_curlyhair.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Meme Smash x3",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_punch_250527.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_punch_250527.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Meme Smash x3_cover_web_punch_250527.gif",
+    "preview_local": "assets/templates/Meme Smash x3_cover_web_punch_250527.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Strikeout Dance",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_3wave_250626.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_3wave_250626.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Strikeout Dance_cover_web_3wave_250626.gif",
+    "preview_local": "assets/templates/Strikeout Dance_cover_web_3wave_250626.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Rainbow Moment",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_rainbow_250603.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_rainbow_250603.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Rainbow Moment_cover_web_rainbow_250603.gif",
+    "preview_local": "assets/templates/Rainbow Moment_cover_web_rainbow_250603.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Fin-tastic Mermaid",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_mermaid_250528.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_mermaid_250528.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Fin-tastic Mermaid_cover_web_mermaid_250528.gif",
+    "preview_local": "assets/templates/Fin-tastic Mermaid_cover_web_mermaid_250528.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Fire Roar",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_fire_250312.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_fire_250312.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Fire Roar_cover_web_fire_250312.gif",
+    "preview_local": "assets/templates/Fire Roar_cover_web_fire_250312.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Evil Trigger",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_fire_250328.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_fire_250328.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Evil Trigger_cover_web_fire_250328.gif",
+    "preview_local": "assets/templates/Evil Trigger_cover_web_fire_250328.gif"
+  },
+  {
+    "id": "",
+    "name_zh": "",
+    "name_en": "Who’s Arrested?",
+    "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_arrest_250610.gif?x-oss-process=style/cover-webp",
+    "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_arrest_250610.gif?x-oss-process=style/cover-webp",
+    "favorite": false,
+    "cover_local": "assets/templates/Who’s Arrested__cover_web_arrest_250610.gif",
+    "preview_local": "assets/templates/Who’s Arrested__cover_web_arrest_250610.gif"
+  }
+]
+  // 也挂到 window 上，方便你在控制台或其它模块里用
+  window.PIX_EFFECT_TEMPLATES = TEMPLATES;
+
+  // ================================
+  // 2. 注入样式（只影响本弹窗）
+  // ================================
+  function injectStyleOnce() {
+    if (document.getElementById('pv-effect-selector-style')) return;
+    const style = document.createElement('style');
+    style.id = 'pv-effect-selector-style';
+    style.textContent = `
+    .pv-effect-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(6px);
+    }
+    .pv-effect-dialog {
+      width: min(960px, 96vw);
+      max-height: 82vh;
+      background: #0b1120;
+      border-radius: 14px;
+      border: 1px solid #1f2937;
+      box-shadow:
+        0 22px 60px rgba(0,0,0,0.85),
+        0 0 0 1px rgba(15,23,42,0.9);
+      display: flex;
+      flex-direction: column;
+      padding: 14px 16px 16px;
+      color: #e5e7eb;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    .pv-effect-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      gap: 12px;
+    }
+    .pv-effect-title {
+      font-size: 15px;
+      font-weight: 500;
+    }
+    .pv-effect-subtitle {
+      font-size: 12px;
+      color: #9ca3af;
+      margin-top: 2px;
+    }
+    .pv-effect-toolbar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .pv-effect-search {
+      flex: 1;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid #374151;
+      background: #020617;
+      color: #e5e7eb;
+      font-size: 12px;
+      outline: none;
+    }
+    .pv-effect-search:focus {
+      border-color: #67c8ff;
+      box-shadow:
+        0 0 0 1px rgba(103,200,255,0.45),
+        0 0 14px rgba(37,99,235,0.5);
+    }
+    .pv-effect-fav-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 12px;
+      color: #9ca3af;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .pv-effect-list {
+      flex: 1;
+      overflow: auto;
+      padding: 4px 2px 2px;
+    }
+    .pv-effect-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+      gap: 10px;
+    }
+    .pv-effect-card {
+      border-radius: 10px;
+      border: 1px solid #1f2937;
+      background:
+        radial-gradient(circle at top left, rgba(59,130,246,0.18) 0, transparent 55%),
+        #020617;
+      padding: 6px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      cursor: pointer;
+      transition:
+        transform 0.08s ease,
+        box-shadow 0.12s ease,
+        border-color 0.12s ease,
+        background 0.12s ease;
+    }
+    .pv-effect-card:hover {
+      transform: translateY(-1px);
+      border-color: #3b82f6;
+      box-shadow: 0 14px 35px rgba(15,23,42,0.95);
+      background:
+        radial-gradient(circle at top left, rgba(59,130,246,0.28) 0, transparent 55%),
+        #020617;
+    }
+    .pv-effect-thumb {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #020617;
+      border: 1px solid #111827;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      color: #6b7280;
+    }
+    .pv-effect-thumb img,
+    .pv-effect-thumb video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .pv-effect-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .pv-effect-name {
+      font-size: 13px;
+      font-weight: 500;
+      color: #e5e7eb;
+    }
+    .pv-effect-name-en {
+      font-size: 11px;
+      color: #9ca3af;
+    }
+    .pv-effect-id {
+      font-size: 11px;
+      color: #6b7280;
+    }
+    .pv-effect-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 2px;
+    }
+    .pv-effect-tag {
+      font-size: 10px;
+      padding: 1px 6px;
+      border-radius: 999px;
+      border: 1px solid rgba(58,218,114,0.5);
+      background: rgba(34,197,94,0.12);
+      color: #bbf7d0;
+    }
+    .pv-effect-use-btn {
+      padding: 2px 8px;
+      border-radius: 999px;
+      border: 1px solid #4b5563;
+      background: rgba(31,41,55,0.9);
+      color: #e5e7eb;
+      font-size: 11px;
+      cursor: pointer;
+    }
+    .pv-effect-use-btn:hover {
+      background: rgba(55,65,81,1);
+      border-color: #67c8ff;
+    }
+    .pv-effect-empty {
+      font-size: 12px;
+      color: #9ca3af;
+      padding: 16px 4px;
+      text-align: center;
+    }
+    `;
+    document.head.appendChild(style);
+  }
+
+  // ================================
+  // 3. 创建弹窗 DOM
+  // ================================
+  let overlayEl = null;
+  let dialogEl = null;
+  let listContainerEl = null;
+  let searchInputEl = null;
+  let favOnlyEl = null;
+  let currentTargetInputId = null;
+
+  function ensureDom() {
+    if (overlayEl) return;
+
+    injectStyleOnce();
+
+    overlayEl = document.createElement('div');
+    overlayEl.className = 'pv-effect-overlay';
+
+    dialogEl = document.createElement('div');
+    dialogEl.className = 'pv-effect-dialog';
+
+    const header = document.createElement('div');
+    header.className = 'pv-effect-header';
+    header.innerHTML = `
+      <div>
+        <div class="pv-effect-title">选择特效模板</div>
+        <div class="pv-effect-subtitle">
+          支持按中文名 / 英文名 / ID 搜索，点击「使用此模板」即可填入当前模板输入框。
+        </div>
+      </div>
+      <button type="button" class="btn btn-xs" data-pv-effect-close>关闭</button>
+    `;
+
+    const toolbar = document.createElement('div');
+    toolbar.className = 'pv-effect-toolbar';
+    toolbar.innerHTML = `
+      <input
+        type="text"
+        class="pv-effect-search"
+        placeholder="搜索模板名称（中文 / 英文）或 ID..."
+        id="pvEffectSearchInput"
+      />
+      <label class="pv-effect-fav-toggle">
+        <input type="checkbox" id="pvEffectFavOnly" />
+        只看常用模板
+      </label>
+    `;
+
+    const listWrapper = document.createElement('div');
+    listWrapper.className = 'pv-effect-list';
+    listWrapper.innerHTML = `<div class="pv-effect-grid" id="pvEffectGrid"></div>`;
+
+    dialogEl.appendChild(header);
+    dialogEl.appendChild(toolbar);
+    dialogEl.appendChild(listWrapper);
+    overlayEl.appendChild(dialogEl);
+    document.body.appendChild(overlayEl);
+
+    listContainerEl = dialogEl.querySelector('#pvEffectGrid');
+    searchInputEl = dialogEl.querySelector('#pvEffectSearchInput');
+    favOnlyEl = dialogEl.querySelector('#pvEffectFavOnly');
+
+    // 关闭按钮 & 点击遮罩关闭
+    const closeBtn = dialogEl.querySelector('[data-pv-effect-close]');
+    closeBtn.addEventListener('click', hideOverlay);
+    overlayEl.addEventListener('click', (e) => {
+      if (e.target === overlayEl) hideOverlay();
+    });
+
+    // ESC 关闭
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && overlayEl && overlayEl.style.display === 'flex') {
+        hideOverlay();
+      }
+    });
+
+    // 搜索 & 只看常用
+    if (searchInputEl) {
+      searchInputEl.addEventListener('input', renderList);
+    }
+    if (favOnlyEl) {
+      favOnlyEl.addEventListener('change', renderList);
+    }
+  }
+
+  function hideOverlay() {
+    if (!overlayEl) return;
+    overlayEl.style.display = 'none';
+    currentTargetInputId = null;
+  }
+
+  // ================================
+  // 4. 渲染模板列表
+  // ================================
+  function renderList() {
+    if (!listContainerEl) return;
+
+    const keyword = (searchInputEl?.value || '').trim().toLowerCase();
+    const favOnly = !!(favOnlyEl && favOnlyEl.checked);
+
+    let list = TEMPLATES.slice();
+
+    if (favOnly) {
+      list = list.filter((tpl) => tpl.favorite);
+    }
+
+    if (keyword) {
+      list = list.filter((tpl) => {
+        const idStr = String(tpl.id || '');
+        const zh = (tpl.name_zh || '').toLowerCase();
+        const en = (tpl.name_en || '').toLowerCase();
+        return idStr.includes(keyword) || zh.includes(keyword) || en.includes(keyword);
+      });
+    }
+
+    listContainerEl.innerHTML = '';
+
+    if (!list.length) {
+      const empty = document.createElement('div');
+      empty.className = 'pv-effect-empty';
+      empty.textContent = '没有匹配的模板，可以更换关键字或取消“只看常用”。';
+      listContainerEl.appendChild(empty);
+      return;
+    }
+
+    list.forEach((tpl) => {
+      const card = document.createElement('div');
+      card.className = 'pv-effect-card';
+      card.dataset.id = tpl.id;
+
+      const thumb = document.createElement('div');
+      thumb.className = 'pv-effect-thumb';
+
+      if (tpl.cover) {
+        const img = document.createElement('img');
+        img.src = tpl.cover_local || tpl.cover;
+        img.alt = tpl.name_zh || tpl.name_en || tpl.id;
+        thumb.appendChild(img);
+      } else {
+        thumb.textContent = '无预览图';
+      }
+
+      const meta = document.createElement('div');
+      meta.className = 'pv-effect-meta';
+
+      const name = document.createElement('div');
+      name.className = 'pv-effect-name';
+      name.textContent = tpl.name_zh || tpl.name_en || '未命名模板';
+
+      const nameEn = document.createElement('div');
+      nameEn.className = 'pv-effect-name-en';
+      nameEn.textContent = tpl.name_en || '';
+
+      const idLine = document.createElement('div');
+      idLine.className = 'pv-effect-id';
+      idLine.textContent = 'ID：' + tpl.id;
+
+      meta.appendChild(name);
+      if (tpl.name_en) meta.appendChild(nameEn);
+      meta.appendChild(idLine);
+
+      const footer = document.createElement('div');
+      footer.className = 'pv-effect-card-footer';
+
+      const tag = document.createElement('span');
+      tag.className = 'pv-effect-tag';
+      tag.textContent = tpl.favorite ? '常用模板' : '模板';
+
+      const useBtn = document.createElement('button');
+      useBtn.type = 'button';
+      useBtn.className = 'pv-effect-use-btn';
+      useBtn.textContent = '使用此模板';
+
+      footer.appendChild(tag);
+      footer.appendChild(useBtn);
+
+      card.appendChild(thumb);
+      card.appendChild(meta);
+      card.appendChild(footer);
+
+      // 点击卡片 / 按钮，都选中
+      const apply = () => applyTemplate(tpl);
+      card.addEventListener('dblclick', apply);
+      useBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        apply();
+      });
+
+      listContainerEl.appendChild(card);
+    });
+  }
+
+  // ================================
+  // 5. 选择模板 → 回填到 input
+  // ================================
+  function applyTemplate(tpl) {
+    if (!currentTargetInputId) return;
+    const input = document.getElementById(currentTargetInputId);
+    if (input) {
+      input.value = tpl.id;
+      input.dispatchEvent(new Event('change', { bubbles: true }));
+    }
+    alert(
+      '已选择模板：' +
+        (tpl.name_zh || tpl.name_en || '') +
+        '（ID = ' +
+        tpl.id +
+        '）'
+    );
+    hideOverlay();
+  }
+
+  // ================================
+  // 6. 对外暴露入口
+  // ================================
+  window.openEffectSelector = function (targetInputId) {
+    if (!targetInputId) return;
+    ensureDom();
+
+    currentTargetInputId = targetInputId;
+    if (overlayEl) {
+      overlayEl.style.display = 'flex';
+    }
+
+    if (searchInputEl) searchInputEl.value = '';
+    if (favOnlyEl) favOnlyEl.checked = false;
+    renderList();
+  };
+})();
