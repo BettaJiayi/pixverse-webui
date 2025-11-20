@@ -176,9 +176,30 @@
               <!-- 分组：高级设置 -->
               <h3 class="group-title">高级设置（可选）</h3>
               <label class="form-label">
-                种子（seed 可选）：
-                <input id="txtSeed" type="number" placeholder="范围：0-2147483647" />
+                种子（seed，可选）：
+                <div class="seed-input-wrapper">
+                  <input
+                    id="txtSeed"
+                    type="number"
+                    min="0"
+                    max="2147483647"
+                    placeholder="留空则随机"
+                    class="no-spin"
+                  />
+                  <button
+                    type="button"
+                    class="btn btn-xs btn-outline btn-seed-roll"
+                    data-target="txtSeed"
+                    title="随机种子"
+                  >
+                    🎲
+                  </button>
+                </div>
+                <div class="form-small">
+                  说明：同一提示词 + 相同种子会尽量生成相似结果；留空则随机
+                </div>
               </label>
+
 
               <label class="form-label">
                 特效模板 ID（template_id，可选）：
@@ -187,6 +208,7 @@
                     id="txtTemplateId"
                     type="number"
                     placeholder="例如 3086387029697416576"
+                    class="no-spin"
                   />
                   <button
                     type="button"
@@ -320,8 +342,28 @@
               <!-- 分组：高级设置 -->
               <h3 class="group-title">高级设置（可选）</h3>
               <label class="form-label">
-                种子（seed 可选）：
-                <input id="imgSeed" type="number" placeholder="范围：0-2147483647" />
+                种子（seed，可选）：
+                <div class="seed-input-wrapper">
+                  <input
+                    id="imgSeed"
+                    type="number"
+                    min="0"
+                    max="2147483647"
+                    placeholder="留空则随机"
+                    class="no-spin"
+                  />
+                  <button
+                    type="button"
+                    class="btn btn-xs btn-outline btn-seed-roll"
+                    data-target="imgSeed"
+                    title="随机种子"
+                  >
+                    🎲
+                  </button>
+                </div>
+                <div class="form-small">
+                  说明：同一提示词 + 相同种子会尽量生成相似结果；留空则随机
+                </div>
               </label>
 
               <label class="form-label">
@@ -331,6 +373,7 @@
                     id="extTemplateId"
                     type="number"
                     placeholder="例如 3086387029697416576"
+                    class="no-spin"
                   />
                   <button
                     type="button"
@@ -447,8 +490,28 @@
               <!-- 分组：高级设置 -->
               <h3 class="group-title">高级设置（可选）</h3>
               <label class="form-label">
-                种子：
-                <input id="extSeed" type="number" placeholder="范围：0-2147483647" />
+                种子（seed，可选）：
+                <div class="seed-input-wrapper">
+                  <input
+                    id="extSeed"
+                    type="number"
+                    min="0"
+                    max="2147483647"
+                    placeholder="留空则随机"
+                    class="no-spin"
+                  />
+                  <button
+                    type="button"
+                    class="btn btn-xs btn-outline btn-seed-roll"
+                    data-target="extSeed"
+                    title="随机种子"
+                  >
+                    🎲
+                  </button>
+                </div>
+                <div class="form-small">
+                  说明：同一提示词 + 相同种子会尽量生成相似结果；留空则随机
+                </div>
               </label>
 
               <label class="form-label">
@@ -458,6 +521,7 @@
                     id="extTemplateId"
                     type="number"
                     placeholder="例如 3086387029697416576"
+                    class="no-spin"
                   />
                   <button
                     type="button"
@@ -560,8 +624,28 @@
               <!-- 分组：高级设置 -->
               <h3 class="group-title">高级设置（可选）</h3>
               <label class="form-label">
-                种子（可选）：
-                <input id="transitionSeed" type="number" placeholder="范围：0-2147483647" />
+                种子（seed，可选）：
+                <div class="seed-input-wrapper">
+                  <input
+                    id="transitionSeed"
+                    type="number"
+                    min="0"
+                    max="2147483647"
+                    placeholder="留空则随机"
+                    class="no-spin"
+                  />
+                  <button
+                    type="button"
+                    class="btn btn-xs btn-outline btn-seed-roll"
+                    data-target="transitionSeed"
+                    title="随机种子"
+                  >
+                    🎲
+                  </button>
+                </div>
+                <div class="form-small">
+                  说明：同一提示词 + 相同种子会尽量生成相似结果；留空则随机
+                </div>
               </label>
 
               <!-- 提交区域 -->

@@ -24,10 +24,8 @@
   let currentImgId = null;
 
   // =============== 文件状态标签：未选择 / 上传中 / 已上传 ===============
-  // 直接拿 HTML 里已有的状态标签，不再重复创建
   let imgFileStatusEl = document.getElementById('imgFileStatus');
 
-  // 保证 file input 有统一的样式（HTML 里已经加了，这句只是兜底）
   if (imgFileEl) {
     imgFileEl.classList.add('transition-file-input');
   }
@@ -75,8 +73,17 @@
     } catch (e) {
       console.error('上传图片失败', e);
       alert('上传图片失败：' + e.message);
-      imgIdTextEl.textContent = '上传失败';
+
+      // FIX: 不主动清空 currentImgId，保留之前成功上传的图片
+      if (!currentImgId) {
+        imgIdTextEl.textContent = '上传失败';
+      }
       setImgFileStatus('上传失败', '#ff8989');
+    } finally {
+      // FIX: 清空 input 的值，避免下次选择同一张图不触发 change
+      if (imgFileEl) {
+        imgFileEl.value = '';
+      }
     }
   }
 
@@ -84,13 +91,21 @@
   if (imgFileEl) {
     imgFileEl.addEventListener('change', () => {
       const file = imgFileEl.files && imgFileEl.files[0];
+      const hadImg = !!currentImgId; // FIX: 记录之前是否已有有效图片
+
       if (!file) {
-        setImgFileStatus('未选择文件', 'var(--text-muted)');
-        imgIdTextEl.textContent = '尚未上传图片';
-        currentImgId = null;
-        if (uploadImageBtn) uploadImageBtn.style.display = 'none';
+        // FIX: 如果之前没有图片，才认为是“未选择文件”；否则说明用户取消了重新上传，保留原图
+        if (!hadImg) {
+          setImgFileStatus('未选择文件', 'var(--text-muted)');
+          imgIdTextEl.textContent = '尚未上传图片';
+          currentImgId = null;
+          if (uploadImageBtn) uploadImageBtn.style.display = 'none';
+        } else {
+          setImgFileStatus('已保留之前上传的图片', 'var(--text-muted)');
+        }
         return;
       }
+
       uploadImageFile(file);
     });
   }
@@ -101,6 +116,8 @@
     uploadImageBtn.textContent = '重新上传';
     uploadImageBtn.addEventListener('click', (e) => {
       e.preventDefault();
+      // FIX: 先清空 value，保证选择同一张图片也能触发 change
+      imgFileEl.value = '';
       imgFileEl.click();
     });
   }
@@ -135,7 +152,6 @@
       const style = (imgStyleEl.value || '').trim() || undefined;
       const motionMode = imgMotionModeEl.value || 'normal';
 
-      // ✅ 这里改成布尔开关 + 单独内容
       const soundMode = imgSoundSwitchEl ? imgSoundSwitchEl.value : 'off'; // off / auto / prompt
       const soundEffectSwitch = soundMode !== 'off';
       let soundContent = undefined;
@@ -204,7 +220,6 @@
         const videoId = data.Resp.video_id;
         alert('图片转视频任务提交成功，video_id = ' + videoId);
 
-        // 写入历史记录
         window.upsertHistoryRecord({
           id: videoId,
           type: 'image-to-video',
@@ -216,7 +231,6 @@
           url: null,
         });
 
-        // 自动开始轮询
         window.startAutoPolling(videoId);
       } catch (e) {
         console.error('图片转视频提交失败', e);

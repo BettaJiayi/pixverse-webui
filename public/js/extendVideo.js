@@ -89,15 +89,23 @@
       const file = extVideoFileEl.files && extVideoFileEl.files[0];
       if (!file) {
         setExtFileStatus('未选择文件');
+        // 不清空 currentMediaId，避免误判“未上传视频”
         return;
       }
       uploadVideoFile(file);
     });
   }
 
-  // 重新上传按钮
+  // 重新上传按钮（重要：清空 value，避免同一个文件不触发 change）
   if (extUploadVideoBtn && extVideoFileEl) {
-    extUploadVideoBtn.addEventListener('click', () => {
+    // 这个按钮默认当成“重新上传视频”用
+    extUploadVideoBtn.textContent = '重新上传视频';
+    extUploadVideoBtn.style.display = 'none';
+
+    extUploadVideoBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      // 清空一下，确保就算选同一个文件也会触发 change
+      extVideoFileEl.value = '';
       extVideoFileEl.click();
     });
   }

@@ -1,25 +1,28 @@
 :root {
-  /* ======= 新配色：更明亮、不死黑、柔蓝微光 ======= */
-  --bg: #0c1220;
-  --bg-elevated: #0e1526;
-  --sidebar-bg: #0d1424;
+  /* ===== 主题：紫 + 蓝 暗夜系 ===== */
+  --bg: #050816;              /* 页面背景：深蓝紫 */
+  --bg-elevated: #070b18;     /* 顶部/局部略亮 */
+  --sidebar-bg: #050816;      /* 侧边栏背景 */
 
-  --card-bg: rgba(21, 30, 48, 0.92);
+  --card-bg: rgba(12, 18, 40, 0.96); /* 卡片背景 */
 
-  --border-subtle: #2a3550;
+  --border-subtle: #20263d;   /* 细边框（科技线条） */
 
-  --accent: #3ada72;
-  --accent-soft: rgba(58, 218, 114, 0.12);
-  --accent-strong: rgba(58, 218, 114, 0.55);
+  /* 主色：紫 + 蓝 */
+  --accent: #8b5cf6;          /* 主题紫 */
+  --accent-soft: rgba(139, 92, 246, 0.24);
+  --accent-strong: rgba(56, 189, 248, 0.85); /* 高亮蓝光 */
 
-  --text-main: #e6ecf3;
-  --text-muted: #a7b3c7;
+  --text-main: #e5e7eb;       /* 主文字 */
+  --text-muted: #9ca3af;      /* 次要文字 */
 
   --danger: #f37070;
   --danger-soft: rgba(243, 112, 112, 0.18);
 
   --warning: #ffd84d;
   --warning-soft: rgba(255, 216, 77, 0.16);
+  /* ✅ 三个工作区统一高度 */
+  --panel-height: 900px;
 }
 
 /* 全局基础 */
@@ -38,11 +41,11 @@ body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   color: var(--text-main);
 
-  /* 新背景：深夜蓝雾光 */
+  /* 深夜蓝 + 紫色光晕背景 */
   background:
-    radial-gradient(circle at top left, rgba(90, 200, 255, 0.16) 0, transparent 40%),
-    radial-gradient(circle at top right, rgba(129, 140, 248, 0.14) 0, transparent 45%),
-    radial-gradient(circle at bottom, #0c1220 0, #0c1220 60%, #0c1220 100%);
+    radial-gradient(circle at top left, rgba(56, 189, 248, 0.18) 0, transparent 40%),
+    radial-gradient(circle at top right, rgba(139, 92, 246, 0.18) 0, transparent 45%),
+    radial-gradient(circle at bottom, #050816 0, #050816 60%, #050816 100%);
 }
 
 body {
@@ -61,7 +64,7 @@ body {
 .sidebar {
   width: 230px;
   background:
-    radial-gradient(circle at top, rgba(90, 200, 255, 0.14) 0, transparent 45%),
+    radial-gradient(circle at top, rgba(56, 189, 248, 0.14) 0, transparent 45%),
     var(--sidebar-bg);
   border-right: 1px solid #131c33;
   padding: 16px 14px 14px;
@@ -82,14 +85,14 @@ body {
   width: 30px;
   height: 30px;
   border-radius: 999px;
-  background: conic-gradient(from 160deg, #3ada72, #61c8ff, #7786ff, #3ada72);
+  background: conic-gradient(from 160deg, #8b5cf6, #0ea5e9, #6366f1, #8b5cf6);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 15px;
   font-weight: 700;
-  color: #0c1220;
-  box-shadow: 0 0 18px rgba(58, 218, 114, 0.45);
+  color: #020617;
+  box-shadow: 0 0 18px rgba(56, 189, 248, 0.55);
 }
 
 .logo-text {
@@ -122,12 +125,22 @@ body {
   border-radius: 8px;
   color: var(--text-muted);
   cursor: pointer;
-  font-size: 13px;
+  font-size: 15px;
   transition:
     background 0.15s ease,
     color 0.15s ease,
     transform 0.08s ease,
     box-shadow 0.15s ease;
+}
+
+.sidebar-nav .nav-icon {
+  width: 20px;
+  font-size: 16px;
+}
+
+.sidebar-nav .nav-item {
+  font-size: 15px !important;
+  padding: 10px 12px;
 }
 
 .nav-item:hover {
@@ -156,15 +169,15 @@ body {
   display: block;
 }
 
-/* 选中态 */
+/* 选中态导航高亮 */
 
 #tab-text:checked ~ .app-shell .sidebar-nav label[for="tab-text"],
 #tab-image:checked ~ .app-shell .sidebar-nav label[for="tab-image"],
 #tab-extend:checked ~ .app-shell .sidebar-nav label[for="tab-extend"],
 #tab-transition:checked ~ .app-shell .sidebar-nav label[for="tab-transition"] {
-  background: rgba(58, 218, 114, 0.18);
+  background: var(--accent-soft);
   color: #f9fafb;
-  box-shadow: 0 8px 22px rgba(34, 197, 94, 0.45);
+  box-shadow: 0 8px 22px rgba(56, 189, 248, 0.45);
 }
 
 /* 侧边栏底部 */
@@ -202,7 +215,7 @@ body {
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid rgba(21, 29, 49, 0.9);
-  background: linear-gradient(to right, rgba(21, 29, 49, 0.95), rgba(21, 29, 49, 0.88));
+  background: linear-gradient(to right, rgba(12, 18, 40, 0.96), rgba(15, 23, 42, 0.88));
   backdrop-filter: blur(10px);
   position: sticky;
   top: 0;
@@ -219,8 +232,8 @@ body {
   border-radius: 999px;
   font-size: 11px;
   border: 1px solid rgba(148, 163, 184, 0.35);
-  color: #cbd5f5;
-  background: radial-gradient(circle at top, rgba(129, 140, 248, 0.25), rgba(21, 29, 49, 0.85));
+  color: #e5e7ff;
+  background: radial-gradient(circle at top, rgba(129, 140, 248, 0.32), rgba(12, 18, 40, 0.9));
 }
 
 /* 工作区 */
@@ -252,6 +265,32 @@ body {
   gap: 12px;
   align-items: start; /* 两个右侧卡片顶部对齐 */
 }
+/* ================================
+   三个工作区：等高 + 固定高度
+   左：主表单卡片
+   右：状态卡片 + 历史卡片
+   ================================ */
+
+.workspace-left {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 左侧生成区域卡片：固定高度 */
+.workspace-left .card {
+  height: var(--panel-height);
+  max-height: var(--panel-height);
+  min-height: var(--panel-height);
+  overflow: auto;          /* 内容超出可以在卡片内部滚动 */
+}
+
+/* 右侧两张卡片：固定高度 */
+.right-columns .card {
+  height: var(--panel-height);
+  max-height: var(--panel-height);
+  min-height: var(--panel-height);
+  overflow: auto;
+}
 
 /* 窄屏时上下堆叠 */
 @media (max-width: 1200px) {
@@ -266,12 +305,12 @@ body {
   background:
     radial-gradient(circle at top, rgba(148, 163, 184, 0.12) 0, transparent 55%),
     var(--card-bg);
-  border-radius: 14px;
+  border-radius: 18px;
   padding: 16px 16px 14px;
-  border: 1px solid rgba(42, 53, 80, 0.95);
+  border: 1px solid rgba(31, 41, 71, 0.95);
   box-shadow:
-    0 18px 45px rgba(12, 18, 32, 0.9),
-    0 0 0 1px rgba(12, 18, 32, 0.8);
+    0 18px 45px rgba(3, 7, 18, 0.9),
+    0 0 0 1px rgba(3, 7, 18, 0.8);
 }
 
 .card h2 {
@@ -303,7 +342,7 @@ body {
 
 /*  
 ==================================================
-★ 全局输入框美化（深色主题高亮版）
+★ 全局输入框美化（暗夜紫蓝 + 半圆角）
 ==================================================
 */
 
@@ -314,15 +353,28 @@ input:not([type]),
 textarea,
 select {
   width: 100%;
-  padding: 8px 10px;
-  border-radius: 8px;
-  background: #1c2738 !important;
-  border: 1px solid #345076 !important;
+  padding: 8px 14px;
+  border-radius: 999px; /* 胶囊 / 半圆角 */
+  background:
+    radial-gradient(circle at top left, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.92)) !important;
+  border: 1px solid var(--border-subtle) !important;
   color: #e8eef7 !important;
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.25);
   font-size: 13px;
   outline: none;
-  transition: border 0.16s ease, box-shadow 0.2s ease, background 0.16s ease;
+  transition:
+    border 0.16s ease,
+    box-shadow 0.2s ease,
+    background 0.16s ease,
+    transform 0.12s ease;
+}
+
+textarea {
+  min-height: 76px;
+  resize: none;
+  border-radius: 18px; /* 多行稍微方一点 */
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 input::placeholder,
@@ -331,42 +383,36 @@ textarea::placeholder {
   opacity: 0.85;
 }
 
-/* 聚焦 */
+/* 聚焦高亮 */
 
 input:focus,
 textarea:focus,
 select:focus {
-  border-color: rgba(100, 150, 255, 0.85) !important;
-  background: #223044 !important;
+  border-color: var(--accent) !important;
+  background:
+    radial-gradient(circle at top left, rgba(37, 99, 235, 0.46), rgba(15, 23, 42, 0.96)) !important;
   box-shadow:
-    0 0 0 1px rgba(100, 150, 255, 0.45),
-    0 0 18px rgba(80, 130, 255, 0.4);
+    0 0 0 1px rgba(15, 23, 42, 1),
+    0 0 18px var(--accent-soft);
   transform: translateY(-0.5px);
 }
 
-textarea {
-  min-height: 76px;
-  resize: vertical;
-}
+/* 特定输入框 */
 
-/* 强制修复特定输入框 */
 #statusVideoId,
 #extSourceVideoId {
-  background: #1a2536 !important;
+  background:
+    radial-gradient(circle at top left, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.92)) !important;
   color: var(--text-main) !important;
   border: 1px solid #2c3a52 !important;
 }
 
 /* 所有没有写 type 的 input，也强制变深色主题 */
 input:not([type]) {
-  background: #1a2536 !important;
+  background:
+    radial-gradient(circle at top left, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.92)) !important;
   border: 1px solid #2c3a52 !important;
   color: var(--text-main) !important;
-}
-
-textarea {
-  min-height: 76px;
-  resize: vertical;
 }
 
 .form-row {
@@ -400,7 +446,7 @@ textarea {
   border-radius: 999px;
   font-size: 12px;
   border: 1px solid transparent;
-  background: rgba(30, 41, 59, 0.92);
+  background: rgba(15, 23, 42, 0.92);
   color: #e5e7eb;
   cursor: pointer;
   transition:
@@ -412,9 +458,9 @@ textarea {
 }
 
 .btn:hover {
-  background: rgba(55, 65, 81, 0.98);
+  background: rgba(30, 64, 175, 0.65);
   transform: translateY(-0.5px);
-  box-shadow: 0 8px 18px rgba(12, 18, 32, 0.75);
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.85);
 }
 
 .btn:active {
@@ -428,18 +474,26 @@ textarea {
   box-shadow: none;
 }
 
+/* 主题主按钮：紫蓝渐变 + 光效 */
+
 .btn-primary {
-  background: linear-gradient(to right, #3ada72, #26b75a);
-  color: #022c22;
-  border-color: rgba(58, 218, 114, 0.25);
+  background: linear-gradient(135deg, #8b5cf6, #0ea5e9);
+  color: #e5e7eb;
+  border-color: rgba(129, 140, 248, 0.7);
+  box-shadow:
+    0 0 0 1px rgba(15, 23, 42, 0.9),
+    0 0 18px rgba(56, 189, 248, 0.4);
 }
 
 .btn-primary:hover {
-  background: linear-gradient(to right, #26b75a, #3ada72);
+  background: linear-gradient(135deg, #0ea5e9, #8b5cf6);
+  box-shadow:
+    0 0 0 1px rgba(15, 23, 42, 1),
+    0 0 24px rgba(56, 189, 248, 0.6);
 }
 
 .btn-outline {
-  background: rgba(30, 41, 59, 0.75);
+  background: rgba(15, 23, 42, 0.75);
   border-color: rgba(148, 163, 184, 0.45);
 }
 
@@ -487,7 +541,7 @@ textarea {
 .status-ok {
   background: var(--accent-soft);
   border-color: var(--accent-strong);
-  color: #bbf7d0;
+  color: #e0e7ff;
 }
 
 .status-running {
@@ -520,8 +574,8 @@ textarea {
   width: 100%;
   height: 6px;
   border-radius: 999px;
-  background: rgba(21, 30, 48, 0.96);
-  border: 1px solid rgba(21, 30, 48, 0.92);
+  background: rgba(15, 23, 42, 0.96);
+  border: 1px solid rgba(15, 23, 42, 0.92);
   margin-top: 6px;
   overflow: hidden;
 }
@@ -534,15 +588,15 @@ textarea {
 }
 
 .progress-ok {
-  background: linear-gradient(to right, #3ada72, #5fed99);
+  background: linear-gradient(to right, #8b5cf6, #0ea5e9);
 }
 
 .progress-running {
-  background: linear-gradient(90deg, #ffd84d, #3ada72);
+  background: linear-gradient(90deg, #ffd84d, #8b5cf6);
 }
 
 .progress-blocked {
-  background: linear-gradient(90deg, #6bb0ff, #3ada72);
+  background: linear-gradient(90deg, #6bb0ff, #8b5cf6);
 }
 
 .progress-error {
@@ -566,9 +620,9 @@ textarea {
 #statusRaw {
   max-height: 230px;
   overflow: auto;
-  border-radius: 8px;
-  border: 1px solid #0c1220;
-  background: #0c1220;
+  border-radius: 10px;
+  border: 1px solid #020617;
+  background: #020617;
   padding: 8px 10px;
   font-size: 12px;
 }
@@ -577,10 +631,10 @@ textarea {
 
 .video-preview {
   margin-top: 8px;
-  border-radius: 10px;
-  border: 1px solid #0c1220;
+  border-radius: 12px;
+  border: 1px solid #020617;
   overflow: hidden;
-  background: #0c1220;
+  background: #020617;
 }
 
 .video-preview video {
@@ -627,12 +681,12 @@ textarea {
 }
 
 .history-item {
-  border-radius: 10px;
+  border-radius: 12px;
   padding: 10px 10px 8px;
   border: 1px solid #172033;
   background:
-    radial-gradient(circle at top left, rgba(90, 150, 255, 0.16) 0, transparent 45%),
-    #0c1220;
+    radial-gradient(circle at top left, rgba(56, 189, 248, 0.16) 0, transparent 45%),
+    #050816;
   font-size: 12px;
 }
 
@@ -698,7 +752,7 @@ textarea {
   color: #7b8497;
 }
 
-/* 响应式 */
+/* 响应式：隐藏侧边栏、主区一列 */
 
 @media (max-width: 960px) {
   .sidebar {
@@ -708,9 +762,18 @@ textarea {
   .workspace {
     grid-template-columns: minmax(0, 1fr);
   }
+
+  /* 📱 手机 / 小屏：取消等高限制，改为自适应 */
+  .workspace-left .card,
+  .right-columns .card {
+    height: auto;
+    max-height: none;
+    min-height: 0;
+  }
 }
 
-/* 只给首尾帧 & 文件上传输入框的样式 */
+/* 文件上传输入框（首尾帧 & 图片等） */
+
 .transition-file-input {
   width: 300px !important;
   padding: 0 !important;
@@ -723,14 +786,14 @@ textarea {
   border: none;
 }
 
-/* 真正的“选择文件”按钮的样式（Chrome / Edge 等） */
+/* “选择文件”按钮的样式（Chrome / Edge 等） */
 .transition-file-input::-webkit-file-upload-button,
 .transition-file-input::file-selector-button {
   padding: 6px 14px;
   border-radius: 999px;
-  border: 1px solid #4b5c7f;
-  background: #ffffff;
-  color: #000000;
+  border: 1px solid rgba(75, 85, 99, 0.9);
+  background: radial-gradient(circle at top, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.9));
+  color: #e5e7eb;
   font-size: 12px;
   cursor: pointer;
   transition:
@@ -742,9 +805,9 @@ textarea {
 
 .transition-file-input::-webkit-file-upload-button:hover,
 .transition-file-input::file-selector-button:hover {
-  background: rgba(55, 65, 81, 0.98);
-  border-color: #67c8ff;
-  box-shadow: 0 6px 14px rgba(12, 18, 32, 0.7);
+  background: radial-gradient(circle at top, rgba(37, 99, 235, 0.6), rgba(15, 23, 42, 1));
+  border-color: var(--accent);
+  box-shadow: 0 6px 14px rgba(15, 23, 42, 0.9);
   transform: translateY(-0.5px);
 }
 
@@ -781,6 +844,44 @@ textarea {
   display: inline-flex;
   align-items: center;
   font-size: 14px;
+}
+
+/* ============================
+   去掉模板 ID 输入框的数字上下箭头
+   需要配合 JS 添加 .no-spinner 类
+   ============================ */
+input[type="number"].no-spinner::-webkit-outer-spin-button,
+input[type="number"].no-spinner::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"].no-spinner {
+  -moz-appearance: textfield;
+}
+
+/* 种子输入行：input + 🎲 按钮横排 */
+.seed-input-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+}
+
+.seed-input-wrapper input {
+  flex: 1;
+}
+
+/* 禁用 number 的上下箭头（Chrome / Edge / Safari） */
+input[type="number"].no-spin::-webkit-outer-spin-button,
+input[type="number"].no-spin::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* 禁用 number 的上下箭头（Firefox） */
+input[type="number"].no-spin {
+  -moz-appearance: textfield;
 }
 
 /* 小标题样式 */
@@ -829,5 +930,88 @@ textarea {
   .panel-grid > .form-row,
   .panel-grid > .form-block {
     grid-column: 1 / -1;
+  }
+}
+
+/* ================================
+   修复 <select> 下拉菜单的白底问题（深色主题）
+   ================================ */
+
+select {
+  background-color: #1c2536 !important;
+  color: var(--text-main) !important;
+}
+
+/* 修复 Chrome / Edge 下拉项目的颜色 */
+select option {
+  background-color: #1a2233 !important;
+  color: var(--text-main) !important;
+}
+
+/* 鼠标悬停在 option 上 */
+select option:hover {
+  background-color: #2b3350 !important;
+  color: #ffffff !important;
+}
+
+/* 选中状态 */
+select option:checked {
+  background-color: #3b4a71 !important;
+  color: #ffffff !important;
+}
+
+/* ==================================================
+   额外移动端优化：桌面优先 + 手机可用
+   ================================================== */
+
+@media (max-width: 768px) {
+  .app-shell {
+    padding: 0;
+  }
+
+  .workspace {
+    padding: 12px 10px 14px;
+    gap: 14px;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .card {
+    border-radius: 16px;
+    padding: 14px 12px 12px;
+  }
+
+  .form-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .form-row .form-label {
+    width: 100%;
+  }
+
+  .right-columns {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 13px;
+  }
+
+  .topbar {
+    padding: 0 12px;
+  }
+
+  .topbar-title {
+    font-size: 14px;
+  }
+
+  .card h2 {
+    font-size: 15px;
+  }
+
+  .group-title {
+    font-size: 12px;
   }
 }

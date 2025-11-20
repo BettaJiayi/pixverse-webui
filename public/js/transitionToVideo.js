@@ -23,6 +23,10 @@
 
   const modeTitleEl = document.getElementById('modeTitle');
 
+  // “重新上传”按钮（如果 HTML 里没有这些元素，这里拿到就是 null，不会报错）
+  const reuploadFirstFrameBtn = document.getElementById('reuploadFirstFrameBtn');
+  const reuploadLastFrameBtn  = document.getElementById('reuploadLastFrameBtn');
+
   // 当前 img_id
   let firstFrameImgId = null;
   let lastFrameImgId = null;
@@ -124,6 +128,27 @@
         }
         alert('尾帧上传失败：' + e.message);
       }
+    });
+  }
+
+  // -----------------------------
+  // 首帧“重新上传”按钮：清空 value + 触发选择
+  // -----------------------------
+  if (reuploadFirstFrameBtn && firstFrameFileEl) {
+    reuploadFirstFrameBtn.addEventListener('click', () => {
+      // 关键：清空一下，避免选择同一个文件不触发 change
+      firstFrameFileEl.value = '';
+      firstFrameFileEl.click();
+    });
+  }
+
+  // -----------------------------
+  // 尾帧“重新上传”按钮：清空 value + 触发选择
+  // -----------------------------
+  if (reuploadLastFrameBtn && lastFrameFileEl) {
+    reuploadLastFrameBtn.addEventListener('click', () => {
+      lastFrameFileEl.value = '';
+      lastFrameFileEl.click();
     });
   }
 

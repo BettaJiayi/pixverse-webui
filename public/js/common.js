@@ -727,11 +727,62 @@ if (historyClearBtn) {
   historyClearBtn.addEventListener('click', clearHistoryAll);
 }
 
+// =============== 种子 🎲 随机按钮通用逻辑 ===============
+(() => {
+  const MIN_SEED = 0;
+  const MAX_SEED = 2147483647;
+
+  function rollRandomSeed() {
+    // 包含 0 和 MAX_SEED 的整数
+    return Math.floor(Math.random() * (MAX_SEED - MIN_SEED + 1)) + MIN_SEED;
+  }
+
+  // 事件代理：点击任意 .btn-seed-roll
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.btn-seed-roll');
+    if (!btn) return;
+
+    e.preventDefault();
+
+    const targetId = btn.getAttribute('data-target');
+    if (!targetId) return;
+
+    const input = document.getElementById(targetId);
+    if (!input) return;
+
+    const seed = rollRandomSeed();
+    input.value = String(seed);
+  });
+})();
+
+
+// ========== 工具：给模板 ID 输入框加上 no-spinner 类，配合 CSS 去掉上下箭头 ==========
+function hideNumberSpinnerForTemplate(inputId) {
+  const input = document.getElementById(inputId);
+  if (!input) return;
+  input.classList.add('no-spinner');
+}
+
 // 页面初始化
 ensureDownloadButton();
 renderHistory();
 resetProgressVisual();
 refreshBalance();
+
+// 初始化：绑定所有种子输入框的随机功能
+[
+  'textSeed',
+  'imgSeed',
+  'extSeed',
+  'transitionSeed'
+].forEach(setupRandomSeedInput);
+
+// 初始化：模板 ID 输入框去掉上下箭头（配合 styles.css 里的 .no-spinner）
+[
+  'textTemplateId',
+  'imgTemplateId',
+  'extTemplateId'
+].forEach(hideNumberSpinnerForTemplate);
 
 // 暴露给其他模块使用
 window.apiBase = apiBase;
