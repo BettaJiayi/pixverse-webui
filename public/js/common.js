@@ -54,7 +54,7 @@ function ensureDownloadButton() {
   const btn = document.createElement('button');
   btn.id = 'downloadVideoBtn';
   btn.className = 'btn btn-xs';
-  btn.textContent = '下载视频到本地';
+  btn.textContent = '⏬下载视频到本地';
   btn.disabled = true;
 
   wrapper.appendChild(btn);
@@ -103,7 +103,7 @@ function ensureDownloadButton() {
       } catch {}
     } finally {
       downloadVideoBtn.disabled = false;
-      downloadVideoBtn.textContent = '下载视频到本地';
+      downloadVideoBtn.textContent = '⏬下载视频到本地';
     }
   });
 }
@@ -429,7 +429,7 @@ function resetProgressVisual() {
 
   if (downloadVideoBtn) {
     downloadVideoBtn.disabled = true;
-    downloadVideoBtn.textContent = '下载视频到本地';
+    downloadVideoBtn.textContent = '⏬下载视频到本地';
   }
 }
 
@@ -517,7 +517,7 @@ function startAutoPolling(videoId) {
 
   if (downloadVideoBtn) {
     downloadVideoBtn.disabled = true;
-    downloadVideoBtn.textContent = '下载视频到本地';
+    downloadVideoBtn.textContent = '⏬下载视频到本地';
   }
 
   // 先做一次立即查询，再每 4 秒查一次
@@ -550,7 +550,7 @@ async function pollStatusOnce() {
 
     if (downloadVideoBtn) {
       downloadVideoBtn.disabled = true;
-      downloadVideoBtn.textContent = '下载视频到本地';
+      downloadVideoBtn.textContent = '⏬下载视频到本地';
     }
     return;
   }
@@ -616,7 +616,7 @@ async function pollStatusOnce() {
 
         if (downloadVideoBtn) {
           downloadVideoBtn.disabled = false;
-          downloadVideoBtn.textContent = '下载视频到本地';
+          downloadVideoBtn.textContent = '⏬下载视频到本地';
         }
       } else if (status === 5) {
         videoLinkBoxEl.textContent =
@@ -642,7 +642,7 @@ async function pollStatusOnce() {
 
         if (downloadVideoBtn) {
           downloadVideoBtn.disabled = true;
-          downloadVideoBtn.textContent = '下载视频到本地';
+          downloadVideoBtn.textContent = '⏬下载视频到本地';
         }
       } else if (status === 8) {
         videoLinkBoxEl.textContent =
@@ -655,7 +655,7 @@ async function pollStatusOnce() {
 
         if (downloadVideoBtn) {
           downloadVideoBtn.disabled = true;
-          downloadVideoBtn.textContent = '下载视频到本地';
+          downloadVideoBtn.textContent = '⏬下载视频到本地';
         }
       }
 
@@ -683,7 +683,7 @@ async function pollStatusOnce() {
 
       if (downloadVideoBtn) {
         downloadVideoBtn.disabled = true;
-        downloadVideoBtn.textContent = '下载视频到本地';
+        downloadVideoBtn.textContent = '⏬下载视频到本地';
       }
     }
   } catch (e) {
@@ -697,7 +697,7 @@ async function pollStatusOnce() {
 
     if (downloadVideoBtn) {
       downloadVideoBtn.disabled = true;
-      downloadVideoBtn.textContent = '下载视频到本地';
+      downloadVideoBtn.textContent = '⏬下载视频到本地';
     }
   }
 }
