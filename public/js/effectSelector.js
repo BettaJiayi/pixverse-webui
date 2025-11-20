@@ -86,7 +86,7 @@
     "preview_local": "assets/templates/Dragon Evoker_cover_web_dragon_250928.gif"
   },
   {
-    "id": "",
+    "id": "362704938833536",
     "name_zh": "",
     "name_en": "Ghostface Terror",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_scream_250930.gif?x-oss-process=style/cover-webp",
@@ -96,7 +96,7 @@
     "preview_local": "assets/templates/Ghostface Terror_cover_web_scream_250930.gif"
   },
   {
-    "id": "",
+    "id": "359328847686976",
     "name_zh": "",
     "name_en": "Figurine Me Up!",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fapp_3dtoy_250911.gif?x-oss-process=style/cover-webp",
@@ -106,7 +106,7 @@
     "preview_local": "assets/templates/Figurine Me Up!_cover_app_3dtoy_250911.gif"
   },
   {
-    "id": "",
+    "id": "359004842664384",
     "name_zh": "",
     "name_en": "3D Figurine Factory",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2F3dtoy_250909.gif?x-oss-process=style/cover-webp",
@@ -116,7 +116,7 @@
     "preview_local": "assets/templates/3D Figurine Factory_cover_3dtoy_250909.gif"
   },
   {
-    "id": "",
+    "id": "349110259052160",
     "name_zh": "",
     "name_en": "Earth Zoom Challenge",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_earthzoom_250716.gif?x-oss-process=style/cover-webp",
@@ -126,7 +126,7 @@
     "preview_local": "assets/templates/Earth Zoom Challenge_cover_web_earthzoom_250716.gif"
   },
   {
-    "id": "",
+    "id": "346384996936128",
     "name_zh": "",
     "name_en": "Old Photo Revival",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fapi_oldd.gif?x-oss-process=style/cover-webp",
@@ -136,7 +136,7 @@
     "preview_local": "assets/templates/Old Photo Revival_cover_api_oldd.gif"
   },
   {
-    "id": "",
+    "id": "360586769510976",
     "name_zh": "",
     "name_en": "My Destiny Tarot Card",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb-tarot-251107.gif?x-oss-process=style/cover-webp",
@@ -146,7 +146,7 @@
     "preview_local": "assets/templates/My Destiny Tarot Card_cover_web-tarot-251107.gif"
   },
   {
-    "id": "",
+    "id": "369281788356224",
     "name_zh": "",
     "name_en": "Mechanical Assembly",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2F%E6%9C%BA%E6%A2%B0%E7%BB%84%E8%A3%85.gif?x-oss-process=style/cover-webp",
@@ -156,7 +156,7 @@
     "preview_local": "assets/templates/Mechanical Assembly_cover_机械组装.gif"
   },
   {
-    "id": "",
+    "id": "368493579993536",
     "name_zh": "",
     "name_en": "Billboard AD",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2F%E5%85%AC%E8%B7%AF%E5%B9%BF%E5%91%8A%E7%89%8C.gif?x-oss-process=style/cover-webp",
@@ -166,7 +166,7 @@
     "preview_local": "assets/templates/Billboard AD_cover_公路广告牌.gif"
   },
   {
-    "id": "",
+    "id": "368493233725888",
     "name_zh": "",
     "name_en": "Giant Product",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2F%E5%B7%A8%E5%A4%A7%E8%A1%97%E5%A4%B4%E4%BA%A7%E5%93%81.gif?x-oss-process=style/cover-webp",
@@ -176,7 +176,7 @@
     "preview_local": "assets/templates/Giant Product_cover_巨大街头产品.gif"
   },
   {
-    "id": "",
+    "id": "368492855374272",
     "name_zh": "",
     "name_en": "Product close-up",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2F%E4%B8%9D%E7%BB%B8%E7%8E%AF%E5%A2%83.gif?x-oss-process=style/cover-webp",
@@ -186,7 +186,7 @@
     "preview_local": "assets/templates/Product close-up_cover_丝绸环境.gif"
   },
   {
-    "id": "",
+    "id": "368492376619456",
     "name_zh": "",
     "name_en": "Beach AD",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2F%E6%B2%99%E6%BB%A91.gif?x-oss-process=style/cover-webp",
@@ -196,7 +196,7 @@
     "preview_local": "assets/templates/Beach AD_cover_沙滩1.gif"
   },
   {
-    "id": "",
+    "id": "368723165573888",
     "name_zh": "",
     "name_en": "The Rose and Freedom",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_theroseandfreedom_251103.gif?x-oss-process=style/cover-webp",
@@ -206,7 +206,7 @@
     "preview_local": "assets/templates/The Rose and Freedom_cover_web_theroseandfreedom_251103.gif"
   },
   {
-    "id": "",
+    "id": "368689273684736",
     "name_zh": "",
     "name_en": "AI Museum Portrait",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_aimuseum_251103.gif?x-oss-process=style/cover-webp",
@@ -216,7 +216,7 @@
     "preview_local": "assets/templates/AI Museum Portrait_cover_web_aimuseum_251103.gif"
   },
   {
-    "id": "",
+    "id": "364641000073984",
     "name_zh": "",
     "name_en": "Truck Fashion Shoot",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2F%E8%B4%A7%E8%BD%A6%E6%97%B6%E5%B0%9A%E5%B9%BF%E5%91%8A1.gif?x-oss-process=style/cover-webp",
@@ -226,7 +226,7 @@
     "preview_local": "assets/templates/Truck Fashion Shoot_cover_货车时尚广告1.gif"
   },
   {
-    "id": "",
+    "id": "366949275773760",
     "name_zh": "",
     "name_en": "Shoal Surround",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2F%E9%B1%BC%E7%BE%A4%E7%8E%AF%E7%BB%95.gif?x-oss-process=style/cover-webp",
@@ -236,7 +236,7 @@
     "preview_local": "assets/templates/Shoal Surround_cover_鱼群环绕.gif"
   },
   {
-    "id": "",
+    "id": "366951270155072",
     "name_zh": "",
     "name_en": "Parachute Delivery",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2F%E9%99%8D%E8%90%BD%E4%BC%9E.gif?x-oss-process=style/cover-webp",
@@ -246,7 +246,7 @@
     "preview_local": "assets/templates/Parachute Delivery_cover_降落伞.gif"
   },
   {
-    "id": "",
+    "id": "366951955215168",
     "name_zh": "",
     "name_en": "Lighting AD",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2F%E5%85%89%E5%BD%B1%E6%B0%B4%E6%B3%A2%E7%BA%B9.gif?x-oss-process=style/cover-webp",
@@ -256,7 +256,7 @@
     "preview_local": "assets/templates/Lighting AD_cover_光影水波纹.gif"
   },
   {
-    "id": "",
+    "id": "366950737546048",
     "name_zh": "",
     "name_en": "Dreamlike Cloud",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2F%E4%BA%91%E6%9C%B5%E5%B9%BF%E5%91%8A2.gif?x-oss-process=style/cover-webp",
@@ -266,7 +266,7 @@
     "preview_local": "assets/templates/Dreamlike Cloud_cover_云朵广告2.gif"
   },
   {
-    "id": "",
+    "id": "367843207881536",
     "name_zh": "",
     "name_en": "Welcome to Meowverse",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2FWeb_welcometomeowverse_251029.gif?x-oss-process=style/cover-webp",
@@ -276,7 +276,7 @@
     "preview_local": "assets/templates/Welcome to Meowverse_cover_Web_welcometomeowverse_251029.gif"
   },
   {
-    "id": "",
+    "id": "367503422735872",
     "name_zh": "",
     "name_en": "Muertos Cha-Cha",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_deaddance_251027.gif?x-oss-process=style/cover-webp",
@@ -286,7 +286,7 @@
     "preview_local": "assets/templates/Muertos Cha-Cha_cover_web_deaddance_251027.gif"
   },
   {
-    "id": "",
+    "id": "367503422735872",
     "name_zh": "",
     "name_en": "I Quit",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_iquit_251023.gif?x-oss-process=style/cover-webp",
@@ -296,7 +296,7 @@
     "preview_local": "assets/templates/I Quit_cover_web_iquit_251023.gif"
   },
   {
-    "id": "",
+    "id": "367301708446528",
     "name_zh": "",
     "name_en": "Why Don’t You Call Me Godfather",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_whydidn%E2%80%99tyoucallmegodfather_252026.gif?x-oss-process=style/cover-webp",
@@ -306,7 +306,7 @@
     "preview_local": "assets/templates/Why Don’t You Call Me Godfather_cover_web_whydidn’tyoucallmegodfather_252026.gif"
   },
   {
-    "id": "",
+    "id": "367472828659200",
     "name_zh": "",
     "name_en": "Test Your Workplace Persona",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_testyourworkplacepersona_251027.gif?x-oss-process=style/cover-webp",
@@ -316,7 +316,7 @@
     "preview_local": "assets/templates/Test Your Workplace Persona_cover_web_testyourworkplacepersona_251027.gif"
   },
   {
-    "id": "",
+    "id": "366592384473920",
     "name_zh": "",
     "name_en": "God Wing Gacha",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_3gods_251022.gif?x-oss-process=style/cover-webp",
@@ -326,7 +326,7 @@
     "preview_local": "assets/templates/God Wing Gacha_cover_web_3gods_251022.gif"
   },
   {
-    "id": "",
+    "id": "364673505073920",
     "name_zh": "",
     "name_en": "Elevator photoshoot",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_Elevator+photoshoot%E6%9C%89bgm1_251013.MP3.gif?x-oss-process=style/cover-webp",
@@ -336,7 +336,7 @@
     "preview_local": "assets/templates/Elevator photoshoot_cover_web_Elevator+photoshoot有bgm1_251013.MP3.gif"
   },
   {
-    "id": "",
+    "id": "339164540606208",
     "name_zh": "",
     "name_en": "Hug Lord Ganesha",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_india_250905.gif?x-oss-process=style/cover-webp",
@@ -346,7 +346,7 @@
     "preview_local": "assets/templates/Hug Lord Ganesha_cover_web_india_250905.gif"
   },
   {
-    "id": "",
+    "id": "339164540606208",
     "name_zh": "",
     "name_en": "Pixel World",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fapp_pixel.gif?x-oss-process=style/cover-webp",
@@ -356,7 +356,7 @@
     "preview_local": "assets/templates/Pixel World_cover_app_pixel.gif"
   },
   {
-    "id": "",
+    "id": "350321367924416",
     "name_zh": "",
     "name_en": "Alien Kidnap",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_alien_251110.gif?x-oss-process=style/cover-webp",
@@ -366,7 +366,7 @@
     "preview_local": "assets/templates/Alien Kidnap_cover_web_alien_251110.gif"
   },
   {
-    "id": "",
+    "id": "321956810449792",
     "name_zh": "",
     "name_en": "2025 Oscar Winner",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb-winner-251109.gif?x-oss-process=style/cover-webp",
@@ -376,7 +376,7 @@
     "preview_local": "assets/templates/2025 Oscar Winner_cover_web-winner-251109.gif"
   },
   {
-    "id": "",
+    "id": "339694359740224",
     "name_zh": "",
     "name_en": "Honey Bee Magic",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb-bee-251109.gif?x-oss-process=style/cover-webp",
@@ -386,7 +386,7 @@
     "preview_local": "assets/templates/Honey Bee Magic_cover_web-bee-251109.gif"
   },
   {
-    "id": "",
+    "id": "331927590628416",
     "name_zh": "",
     "name_en": "Simpsons Homie",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb-homie-251109.gif?x-oss-process=style/cover-webp",
@@ -396,7 +396,7 @@
     "preview_local": "assets/templates/Simpsons Homie_cover_web-homie-251109.gif"
   },
   {
-    "id": "",
+    "id": "343058524240960",
     "name_zh": "",
     "name_en": "Shake Shake Disco",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb-shake-251109.gif?x-oss-process=style/cover-webp",
@@ -406,7 +406,7 @@
     "preview_local": "assets/templates/Shake Shake Disco_cover_web-shake-251109.gif"
   },
   {
-    "id": "",
+    "id": "335261821526784",
     "name_zh": "",
     "name_en": "Born to Barbie",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb-babii-251109.gif?x-oss-process=style/cover-webp",
@@ -416,7 +416,7 @@
     "preview_local": "assets/templates/Born to Barbie_cover_web-babii-251109.gif"
   },
   {
-    "id": "",
+    "id": "336699420635904",
     "name_zh": "",
     "name_en": "Dream Mount",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb-dreammount-251109.gif?x-oss-process=style/cover-webp",
@@ -426,7 +426,7 @@
     "preview_local": "assets/templates/Dream Mount_cover_web-dreammount-251109.gif"
   },
   {
-    "id": "",
+    "id": "338611800368896",
     "name_zh": "",
     "name_en": "Just a Friend?",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb-justafriend-251109.gif?x-oss-process=style/cover-webp",
@@ -436,7 +436,7 @@
     "preview_local": "assets/templates/Just a Friend__cover_web-justafriend-251109.gif"
   },
   {
-    "id": "",
+    "id": "340361643937600",
     "name_zh": "",
     "name_en": "Bald Swipe",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_bald_250528.gif?x-oss-process=style/cover-webp",
@@ -446,7 +446,7 @@
     "preview_local": "assets/templates/Bald Swipe_cover_web_bald_250528.gif"
   },
   {
-    "id": "",
+    "id": "361469992918080",
     "name_zh": "",
     "name_en": "My MV Highlight Reel",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb-mv-251107.gif?x-oss-process=style/cover-webp",
@@ -456,7 +456,7 @@
     "preview_local": "assets/templates/My MV Highlight Reel_cover_web-mv-251107.gif"
   },
   {
-    "id": "",
+    "id": "330688573362560",
     "name_zh": "",
     "name_en": "Anime Magic",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb-anime-251107.gif?x-oss-process=style/cover-webp",
@@ -466,7 +466,7 @@
     "preview_local": "assets/templates/Anime Magic_cover_web-anime-251107.gif"
   },
   {
-    "id": "",
+    "id": "365519364076288",
     "name_zh": "",
     "name_en": "Halloween Voodoo Doll",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb-doll-251107.gif?x-oss-process=style/cover-webp",
@@ -476,7 +476,7 @@
     "preview_local": "assets/templates/Halloween Voodoo Doll_cover_web-doll-251107.gif"
   },
   {
-    "id": "",
+    "id": "335104003407232",
     "name_zh": "",
     "name_en": "Grow Up",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb-335104003407232-251107.gif?x-oss-process=style/cover-webp",
@@ -486,7 +486,7 @@
     "preview_local": "assets/templates/Grow Up_cover_web-335104003407232-251107.gif"
   },
   {
-    "id": "",
+    "id": "340712049100608",
     "name_zh": "",
     "name_en": "Hug Together",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2F340712049100608_251107.gif?x-oss-process=style/cover-webp",
@@ -496,7 +496,7 @@
     "preview_local": "assets/templates/Hug Together_cover_340712049100608_251107.gif"
   },
   {
-    "id": "",
+    "id": "366950091449152",
     "name_zh": "",
     "name_en": "Macaron Machine",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2F%E6%89%AD%E8%9B%8B%E6%9C%BA%E7%88%86%E7%82%B8%E5%B9%BF%E5%91%8A2.gif?x-oss-process=style/cover-webp",
@@ -506,7 +506,7 @@
     "preview_local": "assets/templates/Macaron Machine_cover_扭蛋机爆炸广告2.gif"
   },
   {
-    "id": "",
+    "id": "365170951985920",
     "name_zh": "",
     "name_en": "Escape from Nightmare",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_escapefromnightmarexiugai_251016.gif?x-oss-process=style/cover-webp",
@@ -516,7 +516,7 @@
     "preview_local": "assets/templates/Escape from Nightmare_cover_web_escapefromnightmarexiugai_251016.gif"
   },
   {
-    "id": "",
+    "id": "366381407789888",
     "name_zh": "",
     "name_en": "Diwali Radiance",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_diwali_251021.gif?x-oss-process=style/cover-webp",
@@ -526,7 +526,7 @@
     "preview_local": "assets/templates/Diwali Radiance_cover_web_diwali_251021.gif"
   },
   {
-    "id": "",
+    "id": "366799217822656",
     "name_zh": "",
     "name_en": "Pole Split Vixen",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_newpole_251023.gif?x-oss-process=style/cover-webp",
@@ -536,7 +536,7 @@
     "preview_local": "assets/templates/Pole Split Vixen_cover_web_newpole_251023.gif"
   },
   {
-    "id": "",
+    "id": "366944830718784",
     "name_zh": "",
     "name_en": "Happy Chunk",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_happychunk_251024.gif?x-oss-process=style/cover-webp",
@@ -546,7 +546,7 @@
     "preview_local": "assets/templates/Happy Chunk_cover_web_happychunk_251024.gif"
   },
   {
-    "id": "",
+    "id": "366945220815680",
     "name_zh": "",
     "name_en": "Baby Wave",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_babywave_251024.gif?x-oss-process=style/cover-webp",
@@ -556,7 +556,7 @@
     "preview_local": "assets/templates/Baby Wave_cover_web_babywave_251024.gif"
   },
   {
-    "id": "",
+    "id": "354340119359936",
     "name_zh": "",
     "name_en": "Buddha’s Blessing",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_buddha_250814.gif?x-oss-process=style/cover-webp",
@@ -566,7 +566,7 @@
     "preview_local": "assets/templates/Buddha’s Blessing_cover_web_buddha_250814.gif"
   },
   {
-    "id": "",
+    "id": "351687353790080",
     "name_zh": "",
     "name_en": "Ruin Your Vow",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_bride_250801.gif?x-oss-process=style/cover-webp",
@@ -576,7 +576,7 @@
     "preview_local": "assets/templates/Ruin Your Vow_cover_web_bride_250801.gif"
   },
   {
-    "id": "",
+    "id": "353326100438592",
     "name_zh": "",
     "name_en": "Middle Finger Up",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_finger_250808.gif?x-oss-process=style/cover-webp",
@@ -586,7 +586,7 @@
     "preview_local": "assets/templates/Middle Finger Up_cover_web_finger_250808.gif"
   },
   {
-    "id": "",
+    "id": "358127926981120",
     "name_zh": "",
     "name_en": "Insta-Bangs Spray",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_spray_250904.gif?x-oss-process=style/cover-webp",
@@ -596,7 +596,7 @@
     "preview_local": "assets/templates/Insta-Bangs Spray_cover_web_spray_250904.gif"
   },
   {
-    "id": "",
+    "id": "357904025203072",
     "name_zh": "",
     "name_en": "Octopus Invasion",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_anemone_250903.gif?x-oss-process=style/cover-webp",
@@ -606,7 +606,7 @@
     "preview_local": "assets/templates/Octopus Invasion_cover_web_anemone_250903.gif"
   },
   {
-    "id": "",
+    "id": "356317200152960",
     "name_zh": "",
     "name_en": "Skull Multiverse",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_skull_250825.gif?x-oss-process=style/cover-webp",
@@ -616,7 +616,7 @@
     "preview_local": "assets/templates/Skull Multiverse_cover_web_skull_250825.gif"
   },
   {
-    "id": "",
+    "id": "354568167143040",
     "name_zh": "",
     "name_en": "Kitten Hide and Seek",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_250815_2.gif?x-oss-process=style/cover-webp",
@@ -626,7 +626,7 @@
     "preview_local": "assets/templates/Kitten Hide and Seek_cover_web_250815_2.gif"
   },
   {
-    "id": "",
+    "id": "357903949828480",
     "name_zh": "",
     "name_en": "Coral Dreamscape",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_coral_250903.gif?x-oss-process=style/cover-webp",
@@ -636,7 +636,7 @@
     "preview_local": "assets/templates/Coral Dreamscape_cover_web_coral_250903.gif"
   },
   {
-    "id": "",
+    "id": "357905373827456",
     "name_zh": "",
     "name_en": "Lionfish Venomous",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_lionfish_250903.gif?x-oss-process=style/cover-webp",
@@ -646,7 +646,7 @@
     "preview_local": "assets/templates/Lionfish Venomous_cover_web_lionfish_250903.gif"
   },
   {
-    "id": "",
+    "id": "354371350649280",
     "name_zh": "",
     "name_en": "Ninja Shadow Clone",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_clone_250814.gif?x-oss-process=style/cover-webp",
@@ -656,7 +656,7 @@
     "preview_local": "assets/templates/Ninja Shadow Clone_cover_web_clone_250814.gif"
   },
   {
-    "id": "",
+    "id": "357903645598080",
     "name_zh": "",
     "name_en": "Shark Shadows",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_shark_250903.gif?x-oss-process=style/cover-webp",
@@ -666,7 +666,7 @@
     "preview_local": "assets/templates/Shark Shadows_cover_web_shark_250903.gif"
   },
   {
-    "id": "",
+    "id": "359166562889024",
     "name_zh": "",
     "name_en": "Kiss Me to Heaven",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_wetkiss_250910.gif?x-oss-process=style/cover-webp",
@@ -676,7 +676,7 @@
     "preview_local": "assets/templates/Kiss Me to Heaven_cover_web_wetkiss_250910.gif"
   },
   {
-    "id": "",
+    "id": "359516293494080",
     "name_zh": "",
     "name_en": "Vampire Royalty",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_vampire_250911.gif?x-oss-process=style/cover-webp",
@@ -686,7 +686,7 @@
     "preview_local": "assets/templates/Vampire Royalty_cover_web_vampire_250911.gif"
   },
   {
-    "id": "",
+    "id": "361429094298688",
     "name_zh": "",
     "name_en": "Graffiti AD",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2F%E6%B6%82%E9%B8%A6%E7%89%B9%E6%95%88.gif?x-oss-process=style/cover-webp",
@@ -696,7 +696,7 @@
     "preview_local": "assets/templates/Graffiti AD_cover_涂鸦特效.gif"
   },
   {
-    "id": "",
+    "id": "361429094298688",
     "name_zh": "",
     "name_en": "Ocean ad",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2F%E6%B5%B7%E6%B4%8B%E5%8C%96%E5%A6%86%E5%93%81.gif?x-oss-process=style/cover-webp",
@@ -706,7 +706,7 @@
     "preview_local": "assets/templates/Ocean ad_cover_海洋化妆品.gif"
   },
   {
-    "id": "",
+    "id": "364998322275072",
     "name_zh": "",
     "name_en": "Package Explosion",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2F%E9%A3%9F%E5%93%81%E5%8C%85%E8%A3%85.gif?x-oss-process=style/cover-webp",
@@ -716,7 +716,7 @@
     "preview_local": "assets/templates/Package Explosion_cover_食品包装.gif"
   },
   {
-    "id": "",
+    "id": "353279785150016",
     "name_zh": "",
     "name_en": "Officer Crush",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fapi_officer.gif?x-oss-process=style/cover-webp",
@@ -726,7 +726,7 @@
     "preview_local": "assets/templates/Officer Crush_cover_api_officer.gif"
   },
   {
-    "id": "",
+    "id": "352981446212096",
     "name_zh": "",
     "name_en": "Birthday Surprise",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fapi_birthday.gif?x-oss-process=style/cover-webp",
@@ -736,7 +736,7 @@
     "preview_local": "assets/templates/Birthday Surprise_cover_api_birthday.gif"
   },
   {
-    "id": "",
+    "id": "359850491398912",
     "name_zh": "",
     "name_en": "Muscle Pro: Born to Built",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_muscle_250914.gif?x-oss-process=style/cover-webp",
@@ -746,7 +746,7 @@
     "preview_local": "assets/templates/Muscle Pro_ Born to Built_cover_web_muscle_250914.gif"
   },
   {
-    "id": "",
+    "id": "352802159378368",
     "name_zh": "",
     "name_en": "Mwah Mwah",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_kiss2_250805.gif?x-oss-process=style/cover-webp",
@@ -756,7 +756,7 @@
     "preview_local": "assets/templates/Mwah Mwah_cover_web_kiss2_250805.gif"
   },
   {
-    "id": "",
+    "id": "361429166535744",
     "name_zh": "",
     "name_en": "Poster AD",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2F%E6%B5%B7%E6%8A%A5%E5%B9%BF%E5%91%8A.gif?x-oss-process=style/cover-webp",
@@ -766,7 +766,7 @@
     "preview_local": "assets/templates/Poster AD_cover_海报广告.gif"
   },
   {
-    "id": "",
+    "id": "361442712370240",
     "name_zh": "",
     "name_en": "Fisheye sunglasses",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2F%C2%B7%E9%B1%BC%E7%9C%BC%E5%A2%A8%E9%95%9C.gif?x-oss-process=style/cover-webp",
@@ -776,7 +776,7 @@
     "preview_local": "assets/templates/Fisheye sunglasses_cover_·鱼眼墨镜.gif"
   },
   {
-    "id": "",
+    "id": "361428766080064",
     "name_zh": "",
     "name_en": "Truck AD",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2F%E5%8D%A1%E8%BD%A6%E5%B9%BF%E5%91%8A.gif?x-oss-process=style/cover-webp",
@@ -786,7 +786,7 @@
     "preview_local": "assets/templates/Truck AD_cover_卡车广告.gif"
   },
   {
-    "id": "",
+    "id": "365192361458432",
     "name_zh": "",
     "name_en": "Supermarket AD",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2F%E9%A3%9F%E5%93%81%E8%B4%A7%E6%9E%B62.gif?x-oss-process=style/cover-webp",
@@ -796,7 +796,7 @@
     "preview_local": "assets/templates/Supermarket AD_cover_食品货架2.gif"
   },
   {
-    "id": "",
+    "id": "364657798257408",
     "name_zh": "",
     "name_en": "Dishes Served",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2F%E7%BE%8E%E9%A3%9F%E7%9B%9B%E5%AE%B4.gif?x-oss-process=style/cover-webp",
@@ -806,7 +806,7 @@
     "preview_local": "assets/templates/Dishes Served_cover_美食盛宴.gif"
   },
   {
-    "id": "",
+    "id": "348361261605632",
     "name_zh": "",
     "name_en": "5 clips transition",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fasset_template_appzhoujielun_250711.gif?x-oss-process=style/cover-webp",
@@ -816,7 +816,7 @@
     "preview_local": "assets/templates/5 clips transition_cover_asset_template_appzhoujielun_250711.gif"
   },
   {
-    "id": "",
+    "id": "340952173729600",
     "name_zh": "",
     "name_en": "Change My Outfit",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_changemyoutfit_250604.gif?x-oss-process=style/cover-webp",
@@ -826,7 +826,7 @@
     "preview_local": "assets/templates/Change My Outfit_cover_web_changemyoutfit_250604.gif"
   },
   {
-    "id": "",
+    "id": "345014411085376",
     "name_zh": "",
     "name_en": "Winged Wardrobe",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_winged_0623.gif?x-oss-process=style/cover-webp",
@@ -836,7 +836,7 @@
     "preview_local": "assets/templates/Winged Wardrobe_cover_web_winged_0623.gif"
   },
   {
-    "id": "",
+    "id": "326733946317888",
     "name_zh": "",
     "name_en": "Forever Us",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fwedding_250321.gif?x-oss-process=style/cover-webp",
@@ -846,7 +846,7 @@
     "preview_local": "assets/templates/Forever Us_cover_wedding_250321.gif"
   },
   {
-    "id": "",
+    "id": "334005897813056",
     "name_zh": "",
     "name_en": "Transition",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_transition_250422.gif?x-oss-process=style/cover-webp",
@@ -856,7 +856,7 @@
     "preview_local": "assets/templates/Transition_cover_web_transition_250422.gif"
   },
   {
-    "id": "",
+    "id": "349232463042176",
     "name_zh": "",
     "name_en": "My Boyfriendsssss",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_yourboys_250716.gif?x-oss-process=style/cover-webp",
@@ -866,7 +866,7 @@
     "preview_local": "assets/templates/My Boyfriendsssss_cover_web_yourboys_250716.gif"
   },
   {
-    "id": "",
+    "id": "350827863568000",
     "name_zh": "",
     "name_en": "I Believe I Can Fly",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_fly_250725.gif?x-oss-process=style/cover-webp",
@@ -876,7 +876,7 @@
     "preview_local": "assets/templates/I Believe I Can Fly_cover_web_fly_250725.gif"
   },
   {
-    "id": "",
+    "id": "350496364287680",
     "name_zh": "",
     "name_en": "Muscle Max: Bodybuilder Champion",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_muscleplus_250723.gif?x-oss-process=style/cover-webp",
@@ -886,7 +886,7 @@
     "preview_local": "assets/templates/Muscle Max_ Bodybuilder Champion_cover_web_muscleplus_250723.gif"
   },
   {
-    "id": "",
+    "id": "351899261628032",
     "name_zh": "",
     "name_en": "Drunk Pole Dance",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_poledance_250731.gif?x-oss-process=style/cover-webp",
@@ -896,7 +896,7 @@
     "preview_local": "assets/templates/Drunk Pole Dance_cover_web_poledance_250731.gif"
   },
   {
-    "id": "",
+    "id": "349232644550272",
     "name_zh": "",
     "name_en": "My Girlfriendssss",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_yourgirls_250716.gif?x-oss-process=style/cover-webp",
@@ -906,7 +906,7 @@
     "preview_local": "assets/templates/My Girlfriendssss_cover_web_yourgirls_250716.gif"
   },
   {
-    "id": "",
+    "id": "360749956342336",
     "name_zh": "",
     "name_en": "Haunting Doll",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_tim_250917.gif?x-oss-process=style/cover-webp",
@@ -916,7 +916,7 @@
     "preview_local": "assets/templates/Haunting Doll_cover_web_tim_250917.gif"
   },
   {
-    "id": "",
+    "id": "343430955683776",
     "name_zh": "",
     "name_en": "Hitchcock Dolly Zoom",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_hitchcock_2500622.gif?x-oss-process=style/cover-webp",
@@ -926,7 +926,7 @@
     "preview_local": "assets/templates/Hitchcock Dolly Zoom_cover_web_hitchcock_2500622.gif"
   },
   {
-    "id": "",
+    "id": "347130211954560",
     "name_zh": "",
     "name_en": "US Yearbook Flash",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_usid_250706.gif?x-oss-process=style/cover-webp",
@@ -936,7 +936,7 @@
     "preview_local": "assets/templates/US Yearbook Flash_cover_web_usid_250706.gif"
   },
   {
-    "id": "",
+    "id": "352956065691584",
     "name_zh": "",
     "name_en": "Petals of Goodbye",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fapi_petal.gif?x-oss-process=style/cover-webp",
@@ -946,7 +946,7 @@
     "preview_local": "assets/templates/Petals of Goodbye_cover_api_petal.gif"
   },
   {
-    "id": "",
+    "id": "349597743799936",
     "name_zh": "",
     "name_en": "Smell the Lens",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_fisheye_250720.gif?x-oss-process=style/cover-webp",
@@ -956,7 +956,7 @@
     "preview_local": "assets/templates/Smell the Lens_cover_web_fisheye_250720.gif"
   },
   {
-    "id": "",
+    "id": "351913231468160",
     "name_zh": "",
     "name_en": "Emoji Check!",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_phoneemoji_250731.gif?x-oss-process=style/cover-webp",
@@ -966,7 +966,7 @@
     "preview_local": "assets/templates/Emoji Check!_cover_web_phoneemoji_250731.gif"
   },
   {
-    "id": "",
+    "id": "350827688007296",
     "name_zh": "",
     "name_en": "Beam Me Up",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_blue_250725.gif?x-oss-process=style/cover-webp",
@@ -976,7 +976,7 @@
     "preview_local": "assets/templates/Beam Me Up_cover_web_blue_250725.gif"
   },
   {
-    "id": "",
+    "id": "315447659476032",
     "name_zh": "",
     "name_en": "Kungfu Club",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fapi_fight.gif?x-oss-process=style/cover-webp",
@@ -986,7 +986,7 @@
     "preview_local": "assets/templates/Kungfu Club_cover_api_fight.gif"
   },
   {
-    "id": "",
+    "id": "344131642438080",
     "name_zh": "",
     "name_en": "Sharksnap!",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_shark_250617.gif?x-oss-process=style/cover-webp",
@@ -996,7 +996,7 @@
     "preview_local": "assets/templates/Sharksnap!_cover_web_shark_250617.gif"
   },
   {
-    "id": "",
+    "id": "343058574996544",
     "name_zh": "",
     "name_en": "Li Xi Cheng Merch",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_lixicheng_250626.gif?x-oss-process=style/cover-webp",
@@ -1006,7 +1006,7 @@
     "preview_local": "assets/templates/Li Xi Cheng Merch_cover_web_lixicheng_250626.gif"
   },
   {
-    "id": "",
+    "id": "343058758753344",
     "name_zh": "",
     "name_en": "Shake It to the Max",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_shakeitmax_250626.gif?x-oss-process=style/cover-webp",
@@ -1016,7 +1016,7 @@
     "preview_local": "assets/templates/Shake It to the Max_cover_web_shakeitmax_250626.gif"
   },
   {
-    "id": "",
+    "id": "327828816843648",
     "name_zh": "",
     "name_en": "Subject 3 Fever",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_subject3_250318.gif?x-oss-process=style/cover-webp",
@@ -1026,7 +1026,7 @@
     "preview_local": "assets/templates/Subject 3 Fever_cover_web_subject3_250318.gif"
   },
   {
-    "id": "",
+    "id": "348369452948224",
     "name_zh": "",
     "name_en": "Welcome to My House",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_house_250711.gif?x-oss-process=style/cover-webp",
@@ -1036,7 +1036,7 @@
     "preview_local": "assets/templates/Welcome to My House_cover_web_house_250711.gif"
   },
   {
-    "id": "",
+    "id": "347130807494528",
     "name_zh": "",
     "name_en": "Ride My Porsche",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fapi_carrr.gif?x-oss-process=style/cover-webp",
@@ -1046,7 +1046,7 @@
     "preview_local": "assets/templates/Ride My Porsche_cover_api_carrr.gif"
   },
   {
-    "id": "",
+    "id": "342538347747072",
     "name_zh": "",
     "name_en": "Somber Embrace",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_blackwings_0609.gif?x-oss-process=style/cover-webp",
@@ -1056,7 +1056,7 @@
     "preview_local": "assets/templates/Somber Embrace_cover_web_blackwings_0609.gif"
   },
   {
-    "id": "",
+    "id": "343431441233856",
     "name_zh": "",
     "name_en": "Rain of Redemption",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_shawshank_250622.gif?x-oss-process=style/cover-webp",
@@ -1066,7 +1066,7 @@
     "preview_local": "assets/templates/Rain of Redemption_cover_web_shawshank_250622.gif"
   },
   {
-    "id": "",
+    "id": "334053280928832",
     "name_zh": "",
     "name_en": "Vroom Vroom Step",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fapi_vroomdance.gif?x-oss-process=style/cover-webp",
@@ -1076,7 +1076,7 @@
     "preview_local": "assets/templates/Vroom Vroom Step_cover_api_vroomdance.gif"
   },
   {
-    "id": "",
+    "id": "342180291926592",
     "name_zh": "",
     "name_en": "Liquid Metal",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_metal_250606.gif?x-oss-process=style/cover-webp",
@@ -1086,7 +1086,7 @@
     "preview_local": "assets/templates/Liquid Metal_cover_web_metal_250606.gif"
   },
   {
-    "id": "",
+    "id": "333134794738752",
     "name_zh": "",
     "name_en": "Mint in Box",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_toyfigure_250421.gif?x-oss-process=style/cover-webp",
@@ -1096,7 +1096,7 @@
     "preview_local": "assets/templates/Mint in Box_cover_web_toyfigure_250421.gif"
   },
   {
-    "id": "",
+    "id": "347847915659136",
     "name_zh": "",
     "name_en": "Private Airplane",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_jet_250708.gif?x-oss-process=style/cover-webp",
@@ -1106,7 +1106,7 @@
     "preview_local": "assets/templates/Private Airplane_cover_web_jet_250708.gif"
   },
   {
-    "id": "",
+    "id": "340383170699072",
     "name_zh": "",
     "name_en": "Thunder God",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_thunder_250527.gif?x-oss-process=style/cover-webp",
@@ -1116,7 +1116,7 @@
     "preview_local": "assets/templates/Thunder God_cover_web_thunder_250527.gif"
   },
   {
-    "id": "",
+    "id": "339376362313472",
     "name_zh": "",
     "name_en": "Love Punch",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_lovepunch2_250521.gif?x-oss-process=style/cover-webp",
@@ -1126,7 +1126,7 @@
     "preview_local": "assets/templates/Love Punch_cover_web_lovepunch2_250521.gif"
   },
   {
-    "id": "",
+    "id": "337572593925696",
     "name_zh": "",
     "name_en": "Skeleton Dance",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_skeleton_250513.gif?x-oss-process=style/cover-webp",
@@ -1136,7 +1136,7 @@
     "preview_local": "assets/templates/Skeleton Dance_cover_web_skeleton_250513.gif"
   },
   {
-    "id": "",
+    "id": "337792714792704",
     "name_zh": "",
     "name_en": "PUBG Winner Hit",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_winnerdance_250513.gif?x-oss-process=style/cover-webp",
@@ -1146,7 +1146,7 @@
     "preview_local": "assets/templates/PUBG Winner Hit_cover_web_winnerdance_250513.gif"
   },
   {
-    "id": "",
+    "id": "343058274917440",
     "name_zh": "",
     "name_en": "Gabu Dance",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_gabudance_0625.gif?x-oss-process=style/cover-webp",
@@ -1156,7 +1156,7 @@
     "preview_local": "assets/templates/Gabu Dance_cover_web_gabudance_0625.gif"
   },
   {
-    "id": "",
+    "id": "343058469676096",
     "name_zh": "",
     "name_en": "Rat Dance Killer",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_ratdance_250626.gif?x-oss-process=style/cover-webp",
@@ -1166,7 +1166,7 @@
     "preview_local": "assets/templates/Rat Dance Killer_cover_web_ratdance_250626.gif"
   },
   {
-    "id": "",
+    "id": "343058408062016",
     "name_zh": "",
     "name_en": "PASSO BEM SOLTO",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_passodance_250626.gif?x-oss-process=style/cover-webp",
@@ -1176,7 +1176,7 @@
     "preview_local": "assets/templates/PASSO BEM SOLTO_cover_web_passodance_250626.gif"
   },
   {
-    "id": "",
+    "id": "330523675191680",
     "name_zh": "",
     "name_en": "Anime Story",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_ghibli_250402.gif?x-oss-process=style/cover-webp",
@@ -1186,7 +1186,7 @@
     "preview_local": "assets/templates/Anime Story_cover_web_ghibli_250402.gif"
   },
   {
-    "id": "",
+    "id": "328545151283968",
     "name_zh": "",
     "name_en": "Suit Swagger",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fapi_suit.gif?x-oss-process=style/cover-webp",
@@ -1196,7 +1196,7 @@
     "preview_local": "assets/templates/Suit Swagger_cover_api_suit.gif"
   },
   {
-    "id": "",
+    "id": "302325299682368",
     "name_zh": "",
     "name_en": "Monster Invades",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_monsterinvade2.gif?x-oss-process=style/cover-webp",
@@ -1206,7 +1206,7 @@
     "preview_local": "assets/templates/Monster Invades_cover_web_monsterinvade2.gif"
   },
   {
-    "id": "",
+    "id": "327829606196096",
     "name_zh": "",
     "name_en": "Money Tornado",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_money360_250326.gif?x-oss-process=style/cover-webp",
@@ -1216,7 +1216,7 @@
     "preview_local": "assets/templates/Money Tornado_cover_web_money360_250326.gif"
   },
   {
-    "id": "",
+    "id": "339848996187712",
     "name_zh": "",
     "name_en": "Eye Zoom Challenge",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_eye_250524.gif?x-oss-process=style/cover-webp",
@@ -1226,7 +1226,7 @@
     "preview_local": "assets/templates/Eye Zoom Challenge_cover_web_eye_250524.gif"
   },
   {
-    "id": "",
+    "id": "337052664588608",
     "name_zh": "",
     "name_en": "Cry Me a River",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_tears_250508.gif?x-oss-process=style/cover-webp",
@@ -1236,7 +1236,7 @@
     "preview_local": "assets/templates/Cry Me a River_cover_web_tears_250508.gif"
   },
   {
-    "id": "",
+    "id": "341651541059392",
     "name_zh": "",
     "name_en": "Fish Dreamcore",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_fish_250603.gif?x-oss-process=style/cover-webp",
@@ -1246,7 +1246,7 @@
     "preview_local": "assets/templates/Fish Dreamcore_cover_web_fish_250603.gif"
   },
   {
-    "id": "",
+    "id": "325501134629952",
     "name_zh": "",
     "name_en": "Polar Bear Shock",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_polarbear_250304.gif?x-oss-process=style/cover-webp",
@@ -1256,7 +1256,7 @@
     "preview_local": "assets/templates/Polar Bear Shock_cover_web_polarbear_250304.gif"
   },
   {
-    "id": "",
+    "id": "343058324329536",
     "name_zh": "",
     "name_en": "Hands Up! Hands Up!",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_handsup_250626.gif?x-oss-process=style/cover-webp",
@@ -1266,7 +1266,7 @@
     "preview_local": "assets/templates/Hands Up! Hands Up!_cover_web_handsup_250626.gif"
   },
   {
-    "id": "",
+    "id": "325728504863808",
     "name_zh": "",
     "name_en": "Carnival Queen",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_carnival_250308.gif?x-oss-process=style/cover-webp",
@@ -1276,7 +1276,7 @@
     "preview_local": "assets/templates/Carnival Queen_cover_web_carnival_250308.gif"
   },
   {
-    "id": "",
+    "id": "313358700761536",
     "name_zh": "",
     "name_en": "Anything, Robot",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_robot_250207.gif?x-oss-process=style/cover-webp",
@@ -1286,7 +1286,7 @@
     "preview_local": "assets/templates/Anything, Robot_cover_web_robot_250207.gif"
   },
   {
-    "id": "",
+    "id": "316645675647872",
     "name_zh": "",
     "name_en": "Smoking Vibe",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fwebsmoke250113.gif?x-oss-process=style/cover-webp",
@@ -1296,7 +1296,7 @@
     "preview_local": "assets/templates/Smoking Vibe_cover_websmoke250113.gif"
   },
   {
-    "id": "",
+    "id": "313359048325568",
     "name_zh": "",
     "name_en": "Snake Snuggle",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_chinesesnake_250127.gif?x-oss-process=style/cover-webp",
@@ -1306,7 +1306,7 @@
     "preview_local": "assets/templates/Snake Snuggle_cover_web_chinesesnake_250127.gif"
   },
   {
-    "id": "",
+    "id": "324641581197696",
     "name_zh": "",
     "name_en": "Let's YMCA!",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_ymca_250423.gif?x-oss-process=style/cover-webp",
@@ -1316,7 +1316,7 @@
     "preview_local": "assets/templates/Let's YMCA!_cover_web_ymca_250423.gif"
   },
   {
-    "id": "",
+    "id": "327306291348352",
     "name_zh": "",
     "name_en": "Night Night",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_sleep_250314.gif?x-oss-process=style/cover-webp",
@@ -1326,7 +1326,7 @@
     "preview_local": "assets/templates/Night Night_cover_web_sleep_250314.gif"
   },
   {
-    "id": "",
+    "id": "345536984247872",
     "name_zh": "",
     "name_en": "Red or White?",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fapi_haircolor.gif?x-oss-process=style/cover-webp",
@@ -1336,7 +1336,7 @@
     "preview_local": "assets/templates/Red or White__cover_api_haircolor.gif"
   },
   {
-    "id": "",
+    "id": "329607251526400",
     "name_zh": "",
     "name_en": "Huge Cutie",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_hugecutie_250327.gif?x-oss-process=style/cover-webp",
@@ -1346,7 +1346,7 @@
     "preview_local": "assets/templates/Huge Cutie_cover_web_hugecutie_250327.gif"
   },
   {
-    "id": "",
+    "id": "342874383633472",
     "name_zh": "",
     "name_en": "Baby Arrived",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_getbaby_250611.gif?x-oss-process=style/cover-webp",
@@ -1356,7 +1356,7 @@
     "preview_local": "assets/templates/Baby Arrived_cover_web_getbaby_250611.gif"
   },
   {
-    "id": "",
+    "id": "343058215445568",
     "name_zh": "",
     "name_en": "Neymar DJ Dance",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_neymardance_0624.gif?x-oss-process=style/cover-webp",
@@ -1366,7 +1366,7 @@
     "preview_local": "assets/templates/Neymar DJ Dance_cover_web_neymardance_0624.gif"
   },
   {
-    "id": "",
+    "id": "302325299661888",
     "name_zh": "",
     "name_en": "Wizard Hat",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_wizardhat.gif?x-oss-process=style/cover-webp",
@@ -1376,7 +1376,7 @@
     "preview_local": "assets/templates/Wizard Hat_cover_web_wizardhat.gif"
   },
   {
-    "id": "",
+    "id": "302325299672128",
     "name_zh": "",
     "name_en": "Zombie Hand",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_zombiehand.gif?x-oss-process=style/cover-webp",
@@ -1386,7 +1386,7 @@
     "preview_local": "assets/templates/Zombie Hand_cover_web_zombiehand.gif"
   },
   {
-    "id": "",
+    "id": "346969951527360",
     "name_zh": "",
     "name_en": "99 Problems 1 Solution",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fapi_991.gif?x-oss-process=style/cover-webp",
@@ -1396,7 +1396,7 @@
     "preview_local": "assets/templates/99 Problems 1 Solution_cover_api_991.gif"
   },
   {
-    "id": "",
+    "id": "324640938615168",
     "name_zh": "",
     "name_en": "Jellycat Everything",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fapi_jellytoy.gif?x-oss-process=style/cover-webp",
@@ -1406,7 +1406,7 @@
     "preview_local": "assets/templates/Jellycat Everything_cover_api_jellytoy.gif"
   },
   {
-    "id": "",
+    "id": "339398587639552",
     "name_zh": "",
     "name_en": "Trippy Lilies",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fapi_lilies.gif?x-oss-process=style/cover-webp",
@@ -1416,7 +1416,7 @@
     "preview_local": "assets/templates/Trippy Lilies_cover_api_lilies.gif"
   },
   {
-    "id": "",
+    "id": "335610959448832",
     "name_zh": "",
     "name_en": "Werewolf Rage",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_werewolf_250430.gif?x-oss-process=style/cover-webp",
@@ -1426,7 +1426,7 @@
     "preview_local": "assets/templates/Werewolf Rage_cover_web_werewolf_250430.gif"
   },
   {
-    "id": "",
+    "id": "344263482059200",
     "name_zh": "",
     "name_en": "Past Life Job",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_job_250624.gif?x-oss-process=style/cover-webp",
@@ -1436,7 +1436,7 @@
     "preview_local": "assets/templates/Past Life Job_cover_web_job_250624.gif"
   },
   {
-    "id": "",
+    "id": "313555098280384",
     "name_zh": "",
     "name_en": "Bikini Up!",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_bikini_250218.gif?x-oss-process=style/cover-webp",
@@ -1446,7 +1446,7 @@
     "preview_local": "assets/templates/Bikini Up!_cover_web_bikini_250218.gif"
   },
   {
-    "id": "",
+    "id": "322852853601344",
     "name_zh": "",
     "name_en": "Vogue Walk",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_model_250312.gif?x-oss-process=style/cover-webp",
@@ -1456,7 +1456,7 @@
     "preview_local": "assets/templates/Vogue Walk_cover_web_model_250312.gif"
   },
   {
-    "id": "",
+    "id": "333178074897472",
     "name_zh": "",
     "name_en": "Jiggle Jiggle",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_jiggle_250422.gif?x-oss-process=style/cover-webp",
@@ -1466,7 +1466,7 @@
     "preview_local": "assets/templates/Jiggle Jiggle_cover_web_jiggle_250422.gif"
   },
   {
-    "id": "",
+    "id": "336856634055424",
     "name_zh": "",
     "name_en": "Balloon Belly",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_belly_250508.gif?x-oss-process=style/cover-webp",
@@ -1476,7 +1476,7 @@
     "preview_local": "assets/templates/Balloon Belly_cover_web_belly_250508.gif"
   },
   {
-    "id": "",
+    "id": "341983360051008",
     "name_zh": "",
     "name_en": "Fairy Wings",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_sprite_250605.gif?x-oss-process=style/cover-webp",
@@ -1486,7 +1486,7 @@
     "preview_local": "assets/templates/Fairy Wings_cover_web_sprite_250605.gif"
   },
   {
-    "id": "",
+    "id": "345883170158144",
     "name_zh": "",
     "name_en": "Blueprint Supreme",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_dazhanhongtu_250710.gif?x-oss-process=style/cover-webp",
@@ -1496,7 +1496,7 @@
     "preview_local": "assets/templates/Blueprint Supreme_cover_web_dazhanhongtu_250710.gif"
   },
   {
-    "id": "",
+    "id": "316826014376384",
     "name_zh": "",
     "name_en": "Warmth of Jesus",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_jesus_250116.gif?x-oss-process=style/cover-webp",
@@ -1506,7 +1506,7 @@
     "preview_local": "assets/templates/Warmth of Jesus_cover_web_jesus_250116.gif"
   },
   {
-    "id": "",
+    "id": "334237192507776",
     "name_zh": "",
     "name_en": "Clay Fool",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_clay_250423.gif?x-oss-process=style/cover-webp",
@@ -1516,7 +1516,7 @@
     "preview_local": "assets/templates/Clay Fool_cover_web_clay_250423.gif"
   },
   {
-    "id": "",
+    "id": "342535507046144",
     "name_zh": "",
     "name_en": "Sharking Summer",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_skark_250608.gif?x-oss-process=style/cover-webp",
@@ -1526,7 +1526,7 @@
     "preview_local": "assets/templates/Sharking Summer_cover_web_skark_250608.gif"
   },
   {
-    "id": "",
+    "id": "344080941597120",
     "name_zh": "",
     "name_en": "Dust Me Away",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fapi_part.gif?x-oss-process=style/cover-webp",
@@ -1536,7 +1536,7 @@
     "preview_local": "assets/templates/Dust Me Away_cover_api_part.gif"
   },
   {
-    "id": "",
+    "id": "343241420215360",
     "name_zh": "",
     "name_en": "Cleopatra Reborn",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_cleopatra_250613.gif?x-oss-process=style/cover-webp",
@@ -1546,7 +1546,7 @@
     "preview_local": "assets/templates/Cleopatra Reborn_cover_web_cleopatra_250613.gif"
   },
   {
-    "id": "",
+    "id": "339133943656192",
     "name_zh": "",
     "name_en": "BOOM DROP",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_explode_250520.gif?x-oss-process=style/cover-webp",
@@ -1556,8 +1556,8 @@
     "preview_local": "assets/templates/BOOM DROP_cover_web_explode_250520.gif"
   },
   {
-    "id": "",
-    "name_zh": "",
+    "id": "324641385496960",
+    "name_zh": "360°微波炉",
     "name_en": "360° Microwave",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_360_250227.gif?x-oss-process=style/cover-webp",
     "preview": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_360_250227.gif?x-oss-process=style/cover-webp",
@@ -1566,7 +1566,7 @@
     "preview_local": "assets/templates/360° Microwave_cover_web_360_250227.gif"
   },
   {
-    "id": "",
+    "id": "313649622731200",
     "name_zh": "",
     "name_en": "Holy Wings",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_anglewings_250208.gif?x-oss-process=style/cover-webp",
@@ -1576,7 +1576,7 @@
     "preview_local": "assets/templates/Holy Wings_cover_web_anglewings_250208.gif"
   },
   {
-    "id": "",
+    "id": "338083197718400",
     "name_zh": "",
     "name_en": "Punch Face",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_punch_250515.gif?x-oss-process=style/cover-webp",
@@ -1586,7 +1586,7 @@
     "preview_local": "assets/templates/Punch Face_cover_web_punch_250515.gif"
   },
   {
-    "id": "",
+    "id": "331864971269184",
     "name_zh": "",
     "name_en": "Emergency Beat",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_emergency_250409.gif?x-oss-process=style/cover-webp",
@@ -1596,7 +1596,7 @@
     "preview_local": "assets/templates/Emergency Beat_cover_web_emergency_250409.gif"
   },
   {
-    "id": "",
+    "id": "321958080134016",
     "name_zh": "",
     "name_en": "Pomba Gira Slay",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_pombagira_250213.gif?x-oss-process=style/cover-webp",
@@ -1606,7 +1606,7 @@
     "preview_local": "assets/templates/Pomba Gira Slay_cover_web_pombagira_250213.gif"
   },
   {
-    "id": "",
+    "id": "302325299651648",
     "name_zh": "",
     "name_en": "Zombie Mode",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_zombiemode.gif?x-oss-process=style/cover-webp",
@@ -1616,7 +1616,7 @@
     "preview_local": "assets/templates/Zombie Mode_cover_web_zombiemode.gif"
   },
   {
-    "id": "",
+    "id": "338445884778240",
     "name_zh": "",
     "name_en": "Creepy Devil Smile",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_creepy_250516.gif?x-oss-process=style/cover-webp",
@@ -1626,7 +1626,7 @@
     "preview_local": "assets/templates/Creepy Devil Smile_cover_web_creepy_250516.gif"
   },
   {
-    "id": "",
+    "id": "325367418993728",
     "name_zh": "",
     "name_en": "Sakura Flood",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_sakura_250305.gif?x-oss-process=style/cover-webp",
@@ -1636,7 +1636,7 @@
     "preview_local": "assets/templates/Sakura Flood_cover_web_sakura_250305.gif"
   },
   {
-    "id": "",
+    "id": "330448062595520",
     "name_zh": "",
     "name_en": "Paw Princess",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_dresspet_250401.gif?x-oss-process=style/cover-webp",
@@ -1646,7 +1646,7 @@
     "preview_local": "assets/templates/Paw Princess_cover_web_dresspet_250401.gif"
   },
   {
-    "id": "",
+    "id": "333181805861952",
     "name_zh": "",
     "name_en": "Kiss Kiss",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_kisskiss_0610.gif?x-oss-process=style/cover-webp",
@@ -1666,7 +1666,7 @@
     "preview_local": "assets/templates/KILL BILL_cover_web_killbill_250424.gif"
   },
   {
-    "id": "",
+    "id": "332074055488256",
     "name_zh": "",
     "name_en": "Mega Dive",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_diving_250410.gif?x-oss-process=style/cover-webp",
@@ -1676,7 +1676,7 @@
     "preview_local": "assets/templates/Mega Dive_cover_web_diving_250410.gif"
   },
   {
-    "id": "",
+    "id": "321958627120000",
     "name_zh": "",
     "name_en": "Kiss Me, AI!",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_ailover_250212.gif?x-oss-process=style/cover-webp",
@@ -1686,7 +1686,7 @@
     "preview_local": "assets/templates/Kiss Me, AI!_cover_web_ailover_250212.gif"
   },
   {
-    "id": "",
+    "id": "343058141570112",
     "name_zh": "",
     "name_en": "APT. Dance Challenge",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_apt_0624.gif?x-oss-process=style/cover-webp",
@@ -1696,7 +1696,7 @@
     "preview_local": "assets/templates/APT. Dance Challenge_cover_web_apt_0624.gif"
   },
   {
-    "id": "",
+    "id": "303624424723200",
     "name_zh": "",
     "name_en": "Hug Your Love",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_hugyourlove2_250512.gif?x-oss-process=style/cover-webp",
@@ -1706,7 +1706,7 @@
     "preview_local": "assets/templates/Hug Your Love_cover_web_hugyourlove2_250512.gif"
   },
   {
-    "id": "",
+    "id": "332758365690624",
     "name_zh": "",
     "name_en": "Retro Anime Pop",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_anime_250415.gif?x-oss-process=style/cover-webp",
@@ -1716,7 +1716,7 @@
     "preview_local": "assets/templates/Retro Anime Pop_cover_web_anime_250415.gif"
   },
   {
-    "id": "",
+    "id": "339673485621824",
     "name_zh": "",
     "name_en": "Baby Shroom",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_babybite_250526.gif?x-oss-process=style/cover-webp",
@@ -1726,7 +1726,7 @@
     "preview_local": "assets/templates/Baby Shroom_cover_web_babybite_250526.gif"
   },
   {
-    "id": "",
+    "id": "323578865822784",
     "name_zh": "",
     "name_en": "Gender Swap",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fapi_genderchangee.gif?x-oss-process=style/cover-webp",
@@ -1736,7 +1736,7 @@
     "preview_local": "assets/templates/Gender Swap_cover_api_genderchangee.gif"
   },
   {
-    "id": "",
+    "id": "310371322329472",
     "name_zh": "",
     "name_en": "Sheep Curls",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_curlyhair.gif?x-oss-process=style/cover-webp",
@@ -1746,7 +1746,7 @@
     "preview_local": "assets/templates/Sheep Curls_cover_web_curlyhair.gif"
   },
   {
-    "id": "",
+    "id": "339176058171136",
     "name_zh": "",
     "name_en": "Meme Smash x3",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_punch_250527.gif?x-oss-process=style/cover-webp",
@@ -1756,7 +1756,7 @@
     "preview_local": "assets/templates/Meme Smash x3_cover_web_punch_250527.gif"
   },
   {
-    "id": "",
+    "id": "343058619202624",
     "name_zh": "",
     "name_en": "Strikeout Dance",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_3wave_250626.gif?x-oss-process=style/cover-webp",
@@ -1766,7 +1766,7 @@
     "preview_local": "assets/templates/Strikeout Dance_cover_web_3wave_250626.gif"
   },
   {
-    "id": "",
+    "id": "340894729537344",
     "name_zh": "",
     "name_en": "Rainbow Moment",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_rainbow_250603.gif?x-oss-process=style/cover-webp",
@@ -1776,7 +1776,7 @@
     "preview_local": "assets/templates/Rainbow Moment_cover_web_rainbow_250603.gif"
   },
   {
-    "id": "",
+    "id": "340541567573824",
     "name_zh": "",
     "name_en": "Fin-tastic Mermaid",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_mermaid_250528.gif?x-oss-process=style/cover-webp",
@@ -1786,7 +1786,7 @@
     "preview_local": "assets/templates/Fin-tastic Mermaid_cover_web_mermaid_250528.gif"
   },
   {
-    "id": "",
+    "id": "326607027713088",
     "name_zh": "",
     "name_en": "Fire Roar",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_fire_250312.gif?x-oss-process=style/cover-webp",
@@ -1796,7 +1796,7 @@
     "preview_local": "assets/templates/Fire Roar_cover_web_fire_250312.gif"
   },
   {
-    "id": "",
+    "id": "303788802773760",
     "name_zh": "",
     "name_en": "Evil Trigger",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_fire_250328.gif?x-oss-process=style/cover-webp",
@@ -1806,7 +1806,7 @@
     "preview_local": "assets/templates/Evil Trigger_cover_web_fire_250328.gif"
   },
   {
-    "id": "",
+    "id": "342847495240768",
     "name_zh": "",
     "name_en": "Who’s Arrested?",
     "cover": "https://media.pixverse.ai/asset%2Ftemplate%2Fweb_arrest_250610.gif?x-oss-process=style/cover-webp",
