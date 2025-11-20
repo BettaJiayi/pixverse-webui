@@ -679,7 +679,6 @@ input:not([type]) {
   text-underline-offset: 3px;
 }
 
-
 /* 下载按钮区域 */
 
 .video-actions {
@@ -917,6 +916,7 @@ input[type="number"].no-spin {
   margin-top: 4px;
 }
 
+
 /* 提交按钮区域：宽按钮 + 描述 */
 .form-actions {
   margin-top: 14px;
@@ -979,6 +979,7 @@ select option:checked {
   background-color: #3b4a71 !important;
   color: #ffffff !important;
 }
+
 
 /* ==================================================
    额外移动端优化：桌面优先 + 手机可用
