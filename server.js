@@ -4,7 +4,8 @@ const express = require('express');
 const cors = require('cors');
 const axios = require('axios');
 const dotenv = require('dotenv');
-const { v4: uuidv4 } = require('uuid');
+const { randomUUID } = require('crypto');
+const uuidv4 = () => randomUUID();
 const multer = require('multer');
 const FormData = require('form-data');
 
